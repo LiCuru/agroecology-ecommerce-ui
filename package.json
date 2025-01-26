@@ -1,7 +1,7 @@
 {
   "name": "livres-ecommerce-ui",
   "version": "0.1.0",
-  "homepage": "https://licuru.github.io/",
+  "homepage": "https://licuru.github.io/agroecology-ecommerce-ui",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

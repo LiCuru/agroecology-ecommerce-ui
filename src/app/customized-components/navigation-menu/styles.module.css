@@ -159,7 +159,7 @@
 }
 
 .ListItemHeading {
-	font-weight: 500;
+	font-weight: bold;
 	line-height: 1.2;
 	margin-bottom: 5px;
 	color: var(--violet-12);
