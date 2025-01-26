@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   //output: 'export',
-  basePath : 'https://licuru.github.io/agroecology-ecommerce-ui',
+  basePath : '/agroecology-ecommerce-ui',
 
   images: {
     unoptimized: true,
