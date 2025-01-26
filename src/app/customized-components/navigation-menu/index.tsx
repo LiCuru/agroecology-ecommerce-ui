@@ -24,7 +24,7 @@ const NavigationMenuDemo = () => {
 								/>
 							</li>
 							<ListItem href="https://stitches.dev/" title="Senha">
-								Alteração da senha
+								Alteração da senhaaaaaaaaaaaa
 							</ListItem>
 							<ListItem href="/colors" title="Endereço">
 								Atualização de endereço
