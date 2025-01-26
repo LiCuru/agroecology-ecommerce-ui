@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "deploy": "gh-pages -d out",
-    "static": "next build && touch ./out/.nojekyll && echo 'www.mywebsite.com' > ./out/CNAME"
+    "static": "next build && touch ./out/.nojekyll && echo 'https://licuru.github.io/agroecology-ecommerce-ui' > ./out/CNAME"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.2",
