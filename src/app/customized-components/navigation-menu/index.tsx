@@ -78,7 +78,7 @@ const NavigationMenuDemo = () => {
 						className={styles.Link}
 						href="https://github.com/radix-ui"
 					>
-						Sair
+						ola
 					</NavigationMenu.Link>
 				</NavigationMenu.Item>
 
