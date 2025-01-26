@@ -5,7 +5,20 @@ const nextConfig: NextConfig = {
   output: 'export',
   //basePath : '/agroecology-ecommerce-ui',
 
-  images: { unoptimized: true }
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'licuru.github.io',
+        port: '',
+        pathname: '/agroecology-ecommerce-ui/**',
+        search: '',
+      },
+    ],
+  },
 };
+
+module.exports = nextConfig
 
 export default nextConfig;

@@ -17,7 +17,7 @@ const NavigationMenuDemo = () => {
 						<ul className={`${styles.List} one`}>
 							<li style={{ gridRow: "span 3" }}>
 								<Image
-									src='logo-completo.jpg'
+									src='https://licuru.github.io/agroecology-ecommerce-ui/logo-completo.jpg'
 									alt='logo do Livres'
 									width={200}
 									height={200}
