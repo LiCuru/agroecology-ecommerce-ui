@@ -24,13 +24,13 @@ const NavigationMenuDemo = () => {
 									style = {{ margin: 'auto' }}
 								/>
 							</li>
-							<ListItem href="/telas/meu-perfil/senha" title="Senha">
+							<ListItem href="/telas/meuperfil/senha" title="Senha">
 								Alteração da senha
 							</ListItem>
-							<ListItem href="/telas/meu-perfil/endereco" title="Endereço">
+							<ListItem href="/telas/meuperfil/endereco" title="Endereço">
 								Atualização de endereço
 							</ListItem>
-							<ListItem href="/telas/meu-perfil/telefone" title="Telefone">
+							<ListItem href="/telas/meuperfil/telefone" title="Telefone">
 								Atualização do telefone
 							</ListItem>
 						</ul>
@@ -51,23 +51,23 @@ const NavigationMenuDemo = () => {
 							</ListItem>
 							<ListItem
 								title="Pedidos Extras"
-								href="/telas/cestas/pedidos-extras"
+								href="/telas/cestas/pedidosextras"
 							>
 								Escolha os pedidos extras da semana
 							</ListItem>
 							<ListItem
 								title="Cesta Periódica"
-								href="/telas/cestas/cesta-periodica"
+								href="/telas/cestas/cestaperiodica"
 							>
 								Verifique e edite sua cesta semanal ou quinzenal
 							</ListItem>
 							<ListItem
 								title="Histórico de Cestas"
-								href="/telas/cestas/historico-de-cestas"
+								href="/telas/cestas/historicodecestas"
 							>
 								Verifique suas cestas passadas
 							</ListItem>
-							<ListItem title="Pedir Cesta Avulsa" href="pedir-cesta-avulsa">
+							<ListItem title="Pedir Cesta Avulsa" href="/telas/cestas/pedircestaavulsa">
 								Peça uma cesta de produtos independente dos produtos semanais
 							</ListItem>
 						</ul>
