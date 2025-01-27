@@ -21,6 +21,7 @@ const NavigationMenuDemo = () => {
 									alt='logo do Livres'
 									width={200}
 									height={200}
+									style = {{ margin: 'auto' }}
 								/>
 							</li>
 							<ListItem href="https://stitches.dev/" title="Senha">
