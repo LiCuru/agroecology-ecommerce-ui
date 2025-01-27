@@ -1,3 +1,3 @@
 export default function PedirCestaAvulsa() {
-    return <h1>Pedidos extras</h1>
+    return <h1>Pedir Cesta Avulsa</h1>
   }

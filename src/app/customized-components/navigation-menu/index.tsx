@@ -24,13 +24,13 @@ const NavigationMenuDemo = () => {
 									style = {{ margin: 'auto' }}
 								/>
 							</li>
-							<ListItem href="https://stitches.dev/" title="Senha">
+							<ListItem href="/telas/meu-perfil/senha" title="Senha">
 								Alteração da senha
 							</ListItem>
-							<ListItem href="/colors" title="Endereço">
+							<ListItem href="/telas/meu-perfil/endereco" title="Endereço">
 								Atualização de endereço
 							</ListItem>
-							<ListItem href="https://icons.radix-ui.com/" title="Telefone">
+							<ListItem href="/telas/meu-perfil/telefone" title="Telefone">
 								Atualização do telefone
 							</ListItem>
 						</ul>
@@ -45,29 +45,29 @@ const NavigationMenuDemo = () => {
 						<ul className={`${styles.List} two`}>
 							<ListItem
 								title="Variáveis"
-								href="/primitives/docs/overview/introduction"
+								href="/telas/cestas/variaveis"
 							>
 								Escolha as variáveis da semana
 							</ListItem>
 							<ListItem
 								title="Pedidos Extras"
-								href="/primitives/docs/overview/getting-started"
+								href="/telas/cestas/pedidos-extras"
 							>
 								Escolha os pedidos extras da semana
 							</ListItem>
 							<ListItem
 								title="Cesta Periódica"
-								href="/primitives/docs/guides/animation"
+								href="/telas/cestas/cesta-periodica"
 							>
 								Verifique e edite sua cesta semanal ou quinzenal
 							</ListItem>
 							<ListItem
 								title="Histórico de Cestas"
-								href="/primitives/docs/overview/accessibility"
+								href="/telas/cestas/historico-de-cestas"
 							>
 								Verifique suas cestas passadas
 							</ListItem>
-							<ListItem title="Cesta Avulsa" href="/primitives/docs/guides/styling">
+							<ListItem title="Pedir Cesta Avulsa" href="pedir-cesta-avulsa">
 								Peça uma cesta de produtos independente dos produtos semanais
 							</ListItem>
 						</ul>
