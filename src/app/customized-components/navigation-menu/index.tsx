@@ -24,13 +24,13 @@ const NavigationMenuDemo = () => {
 								/>
 							</li>
 							<ListItem href="https://stitches.dev/" title="Senha">
-								Alteração da senhaaaaaaaaaaaa
+								Alteração da senha
 							</ListItem>
 							<ListItem href="/colors" title="Endereço">
 								Atualização de endereço
 							</ListItem>
-							<ListItem href="https://icons.radix-ui.com/" title="demais dados">
-								Atualização de outros dados pessoais
+							<ListItem href="https://icons.radix-ui.com/" title="Telefone">
+								Atualização do telefone
 							</ListItem>
 						</ul>
 					</NavigationMenu.Content>
@@ -78,7 +78,7 @@ const NavigationMenuDemo = () => {
 						className={styles.Link}
 						href="https://github.com/radix-ui"
 					>
-						ola
+						Sair
 					</NavigationMenu.Link>
 				</NavigationMenu.Item>
 
