@@ -1,6 +1,7 @@
 import ButtonsOnTheRight from "./buttons-on-the-right";
 import CollapsableBit from "./collapsable-bit";
-import styles from "./headers.module.sass";
+import styles from "./header.module.sass";
+import DisplayItemRowHeader from "./item-row-header/display-item-row-header";
 
 export default function VariablesHeader(){
     return (
@@ -15,7 +16,9 @@ export default function VariablesHeader(){
                 <div>
                     <ButtonsOnTheRight/>
                 </div>
+                
             </div>
+            <DisplayItemRowHeader/>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import styles from './headers.module.sass';
+import styles from './header.module.sass';
 
 function NextBasketButton(){
 
