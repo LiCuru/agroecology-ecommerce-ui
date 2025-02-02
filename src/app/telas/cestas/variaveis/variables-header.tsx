@@ -1,11 +1,11 @@
 import CollapsableBit from "./collapsable-bit";
-import styles from "./style.module.sass";
+import styles from "./headers.module.sass";
 
 export default function VariablesHeader(){
     return (
         <div className={styles.header}>
+            <CollapsableBit/>
             <div className={styles.variablesSubMenu}>
-                <CollapsableBit/>
                 <div className={styles.currentBasket}>
                     <p>Todos os produtores</p>
                     <p>Todos os produtos</p>
