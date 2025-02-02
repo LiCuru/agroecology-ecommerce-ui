@@ -1,9 +1,9 @@
-import styles from './rows.module.sass';
+import styles from '../rows.module.sass';
 
 export default function NotDeletableRow (
     props: { 
         itemName: string ,
-        itemPortion: number,
+        itemPortion: string,
         itemPrice: number,
         chosenQuantity: number,
         totalItemPrice: number
@@ -17,13 +17,13 @@ export default function NotDeletableRow (
                 <span>{props.itemPortion}</span>
             </div>
             <div className={styles.itemInfoDiv}>
-                <span>{props.itemPrice}</span>
+                <span>R$: {props.itemPrice}</span>
             </div>
             <div className={styles.itemInfoDiv}>
                 <span>{props.chosenQuantity}</span>
             </div>
             <div className={styles.itemInfoDiv}>
-                <span>{props.totalItemPrice}</span>
+                <span>R$: {props.totalItemPrice}</span>
             </div>
         </div>
     );

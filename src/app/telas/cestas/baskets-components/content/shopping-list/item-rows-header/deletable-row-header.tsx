@@ -1,4 +1,4 @@
-import styles from './rows.module.sass';
+import styles from './row-header.module.sass';
 
 export default function DeletableRowHeader(){
     return(
