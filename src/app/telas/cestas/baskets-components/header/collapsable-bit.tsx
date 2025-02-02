@@ -18,7 +18,7 @@ function SelectVariablesButton(){
 }
 
 
-function NextBasketAndVariables(){
+function NextBasketAndAddedItems(){
     return(
         <div className ={styles.mainContainer}>
             <div className={styles.titleGap}>
@@ -37,7 +37,7 @@ function NextBasketAndVariables(){
 export default function CollapsableBit(){
     return(
         <div className={styles.mainContainer}>
-            <NextBasketAndVariables/>
+            <NextBasketAndAddedItems/>
         </div>
     )
 }

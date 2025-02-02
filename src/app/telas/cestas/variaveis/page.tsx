@@ -1,4 +1,4 @@
-import Header from "./header/header";
+import Header from "../baskets-components/header/header";
 import styles from "./style.module.sass";
 
 export default function Variaveis() {
