@@ -1,5 +1,5 @@
 import VariablesHeader from "./variables-header";
-import styles from "./style.module.scss";
+import styles from "./style.module.sass";
 
 export default function Variaveis() {
     return (

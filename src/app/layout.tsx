@@ -1,10 +1,13 @@
 import  NavigationMenuDemo  from "./customized-components/navigation-menu"
+import "./layout.css";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+
   return (
     <html lang="en">
       <body>

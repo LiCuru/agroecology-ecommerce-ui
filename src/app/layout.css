@@ -1,0 +1,9 @@
+ body{
+     height: 100svh;
+     position: fixed;
+     overflow-y: scroll;
+     width: 100%;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+ }

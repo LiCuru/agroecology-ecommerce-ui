@@ -21,6 +21,8 @@ function SelectVariablesButton(){
 function NextBasketAndVariables(){
     return(
         <div className ={styles.mainContainer}>
+                navbar
+                <div className={styles.navbarUnderlyingGap}></div>
                 <div className={styles.titleGap}>
                     <div className={styles.title}>
                     <span className={styles.span}>Variáveis</span>

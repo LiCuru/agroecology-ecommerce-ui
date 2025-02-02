@@ -1,5 +1,5 @@
 import CollapsableBit from "./collapsable-bit";
-import styles from "./style.module.scss";
+import styles from "./style.module.sass";
 
 export default function VariablesHeader(){
     return (
