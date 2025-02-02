@@ -1,0 +1,82 @@
+@import '../colors-and-fonts.scss';
+
+body{
+    height: 100svh;
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.flexContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.header{
+    flex-shrink: 0 1 auto;
+}
+
+.content{
+    flex:1 1 auto;
+    overflow-y: scroll;
+    background-color: $titleGapBgColor;
+}
+
+//for the ScreenContent component
+.mainContainer{
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.FinishVariablesButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70vw;
+    margin: auto;
+    margin-top: -30px;
+    margin-bottom: 180px;
+    background-color: $headerAndTotalBg;
+    border-radius: 30px;
+    border-style: none;
+    height: 100px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+
+    .trolleyDiv{
+        vertical-align: middle;
+        height: 100%;
+
+        span{
+            display: inline-block;
+            vertical-align: middle;
+            
+            .trolleyIcon{
+                height: 40px;
+                vertical-align: middle;
+            }
+        }
+
+
+    }
+
+    span{
+        font-size: 1.5em;
+        color: $whiteBgAndFont;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 100px;
+    }
+}

@@ -51,23 +51,23 @@ const NavigationMenuDemo = () => {
 							</ListItem>
 							<ListItem
 								title="Pedidos Extras"
-								href="/telas/cestas/pedidosextras"
+								href="/telas/cestas/pedidos-extras"
 							>
 								Escolha os pedidos extras da semana
 							</ListItem>
 							<ListItem
 								title="Cesta Periódica"
-								href="/telas/cestas/cestaperiodica"
+								href="/telas/cestas/cesta-periodica"
 							>
 								Verifique e edite sua cesta semanal ou quinzenal
 							</ListItem>
 							<ListItem
 								title="Histórico de Cestas"
-								href="/telas/cestas/historicodecestas"
+								href="/telas/cestas/historico-de-cestas"
 							>
 								Verifique suas cestas passadas
 							</ListItem>
-							<ListItem title="Pedir Cesta Avulsa" href="/telas/cestas/pedircestaavulsa">
+							<ListItem title="Pedir Cesta Avulsa" href="/telas/cestas/pedir-cesta-avulsa">
 								Peça uma cesta de produtos independente dos produtos semanais
 							</ListItem>
 						</ul>

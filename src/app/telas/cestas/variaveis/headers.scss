@@ -1,0 +1,359 @@
+@import "../colors-and-fonts.scss";
+
+.header{
+  // z-index: 5;
+  // position: fixed;
+  width: 100%;
+
+  //this setting applies to all headers
+  .navbarUnderlyingGap{
+    z-index: 1;
+    border: 0;
+    padding: 0;
+    background-color: black;
+    height: 55px;
+    width: 100%;
+  }
+
+  //.titleGap nest applies to all headers
+  .titleGap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 90px;
+    background-color: $titleGapBgColor;
+    color: $whiteBgAndFont;
+    text-align: center;
+    
+    .title{
+      margin: 0;
+      padding: 7px;
+      height: 50%;
+      text-align: center;
+    
+      span{
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      .drowDownContainer{
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: $itemRowBg;
+        width: min-content;
+        border-radius: 7px;
+      }
+    }
+  }
+
+  .collapseButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: $titleGapBgColor; 
+    color: $whiteBgAndFont;
+    text-align: center;
+    font-size: 40px;
+    line-height: 5px;
+
+    div {
+      margin: 0;
+      text-align: center;
+    }
+
+    .upArrow, .downArrow{
+      display: inline-block;
+      border-style: none;
+      background-color: $itemRowBg;
+      color: $whiteBgAndFont;
+      margin-left: 40px;
+      margin-right: 40px;
+      border-radius: 40px;
+    }
+
+    .upArrow{
+      padding-top: 25px;
+      padding-bottom: 10px;
+    }
+    .downArrow{
+      padding-top: 10px;
+      padding-bottom: 25px;
+    }
+  }
+
+  $optionsHeight: 50px;
+  //.variablesNavTabs nest applies only to <HeaderOfVariablesAndNextBasket/>
+
+  .mainContainer{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .variablesNavTabs{
+    background-color: $titleGapBgColor;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    justify-content: space-around;
+
+    div{
+      height: $optionsHeight;
+      margin: 0;
+      padding-left: 7px;
+      padding-right: 7px;
+      font-size: 1.2rem;
+
+      //CSS for options seletion
+      // &:last-of-type{
+      //   font-weight: bold;
+      // }
+      
+      span{
+        line-height: $optionsHeight;
+        vertical-align: middle;
+        color: $whiteBgAndFont;
+      }
+    }
+  }
+  
+  //CSS for options seletion
+  .selectedTab{
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-color: azure;
+    border-radius: 7px;
+    border-width: 2px;
+  }
+
+  //this nest applies only to <HeaderOfVariablesAndNextBasket/>
+
+  .variablesSubMenu{
+    background-color: #192a3b;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    text-align: center;
+    height: $optionsHeight;
+
+    div{
+      height: $optionsHeight;
+
+      // CSS for options seletion
+      // &:first-of-type{
+      //   font-weight: bold;
+      //   font-size: 1.5rem;
+      // }
+      
+      span{
+        display: inline-block;
+        line-height: 100%;
+        vertical-align: middle;
+        color: $whiteBgAndFont;
+      }
+    }
+
+    .currentBasket{
+      flex-direction: column;
+      height: $optionsHeight * 0.8;
+      margin: $optionsHeight * 0.1;
+      padding-right: 7px;
+      padding-left: 7px;
+
+      p{
+        font-size: 0.8rem;
+        text-align: left;
+        margin: 0;
+      /*    color: #e6ff99;*/
+        color: azure;
+        cursor: pointer;
+      }
+
+      
+    };
+
+    .buttonsOnTheRight {
+      display: flex;
+
+        
+      .trolleyDiv{
+        margin-top: 8px;
+        padding-bottom: 3px;
+        padding-top: 4px;
+        padding-right: 7px;
+        padding-left: 5px;
+        vertical-align: middle;
+        height: 85%;
+
+        .trolleyIcon{
+          height: 80%;
+          cursor: pointer; 
+        }
+      }
+
+      .SelectedTrolleyDiv{
+        margin-top: 5px;
+        border-bottom-style: solid;
+        border-top-style: solid;
+        border-color: azure;
+        border-radius: 7px;
+        border-width: 2px;
+      }    
+    
+      .TotalInNavbar {
+        height: $optionsHeight * 0.8;
+        margin: $optionsHeight * 0.09;
+        padding-top: $optionsHeight * 0.05;
+        padding-right: 7px;
+        padding-left: 7px;
+    
+        p{
+          font-size: 0.7rem;
+          text-align: center;
+          margin: 0;
+        /*    color: #e6ff99;*/
+          color: azure;
+          cursor: pointer;
+        }
+    
+        p:first-of-type{
+          font-weight: bold;
+        }
+      }
+
+
+      .SelectedTotalInNavbar{
+        border-bottom-style: solid;
+        border-top-style: solid;
+        border-color: azure;
+        border-radius: 7px;
+        border-width: 2px;
+      }
+    
+
+    .currentBasket{
+      height: $optionsHeight * 0.8;
+      margin: $optionsHeight * 0.1;
+      padding-right: 7px;
+      padding-left: 7px;
+
+      span{
+        display: inline-block;
+        line-height: $optionsHeight * 0.7;
+        vertical-align: middle;
+        color: $whiteBgAndFont;
+      }
+    };
+    }
+
+
+    .hidden{
+      display: none;
+    }
+  }
+
+  //the .options nest applies only to <HeaderOfPastBaskets/> and <HeaderOfCommitmentBasket/>
+  $optionsHeight: 45px;
+  
+  .options{
+    background-color: $titleGapBgColor;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    justify-content: space-around;
+    text-align: center;
+    height: $optionsHeight;
+
+    div{
+      height: $optionsHeight*0.8;
+      margin: $optionsHeight*0.1;
+      padding: 0;
+      padding-top: $optionsHeight*0.05;
+      font-size: 1.1rem;
+      
+      span{
+        display: inline-block;
+        line-height: 100%;
+        vertical-align: middle;
+        color: $whiteBgAndFont;
+      }
+    }
+
+    //CSS for .options div seletion
+    .selected{
+      border-bottom-style: solid;
+      border-top-style: solid;
+      border-color: azure;
+      border-radius: 7px;
+      border-width: 2px;
+      padding-right: 7px;
+      padding-left: 7px;
+    }
+  }
+
+  //this nest applies to all headers
+  .itemRow{
+    background-color: $headerAndTotalBg;
+    color: $whiteBgAndFont;
+
+    span{
+      font-weight: bold;
+      color: $whiteBgAndFont;
+      font-size: 0.8rem;
+    }
+  }
+
+  .producerDropdown{
+    background-color: $titleGapBgColor;
+    // background-color: $headerAndTotalBg;
+    color: $whiteBgAndFont;
+    margin: 0;
+    padding: 7px;
+    height: 50%;
+    text-align: center;
+  
+    span{
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;
+      font-size: 1rem;
+    }
+
+    .drowDownContainer{
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      padding-left: 5px;
+      padding-right: 5px;
+      width: min-content;
+      border-radius: 7px;
+    }
+  }
+}
+
+
+
+
+.Selected p{
+  color: #e6ff99;
+} 
+
+.basketDate{
+  font-style: oblique;
+}
+
+.flexRight{
+  justify-self: flex-start;
+}
