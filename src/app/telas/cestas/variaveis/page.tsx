@@ -1,5 +1,8 @@
-import DeletableRandomList from "../baskets-components/content/shopping-list/deletable-random-list";
-import NotDeletableRandomList from "../baskets-components/content/shopping-list/not-deletable-random-list";
+//import DeletableRandomList from "../baskets-components/content/shopping-list/deletable-random-list";
+//import NotDeletableRandomList from "../baskets-components/content/shopping-list/not-deletable-random-list";
+
+import SalesScreen from "../baskets-components/content/sales/sales-screen";
+
 
 import Header from "../baskets-components/header/header";
 import styles from "./style.module.sass";
@@ -11,7 +14,8 @@ export default function Variaveis() {
         <Header/>
       </div>
       <div className={styles.content}>
-        <NotDeletableRandomList/>
+        {/* <NotDeletableRandomList/> */}
+        <SalesScreen/>
       </div>
     </div>
     )

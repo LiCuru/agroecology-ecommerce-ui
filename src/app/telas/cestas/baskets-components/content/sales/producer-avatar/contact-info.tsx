@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '../sales.module.sass'
+import styles from './contact-info.module.sass'
 
 export default function ContactInfo(
     props:{

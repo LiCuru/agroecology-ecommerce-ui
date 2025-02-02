@@ -7,13 +7,13 @@ export default function ProducerAvatar(){
     return(
         <div>
             <Image
-                className={styles.logo} 
+                className={styles.salesFrame} 
                 src="/photos/users/face11.png" // Path to the image in the `public` folder
                 alt="foto do produtor"
                 width={100} // Desired width
                 height={100} // Desired height
             />
-            <h3   className='profileName'>Joaquim Genésio</h3>
+            <h3   className={styles.profileName}>Joaquim Genésio</h3>
             <ContactInfo
                 facebook = 'rede.livres.produtosdobem.bs'
                 instagram = 'livresbaixadasantista'
