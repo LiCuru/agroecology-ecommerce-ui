@@ -1,4 +1,4 @@
-import ButtonsOnTheRight from "./buttons-on-the-right";
+import ContextLine from "./context-line";
 import CollapsableBit from "./collapsable-bit";
 import styles from "./header.module.sass";
 import DisplayItemRowHeader from "../content/shopping-list/item-rows-header/display-item-row-header";
@@ -14,7 +14,7 @@ export default function VariablesHeader(){
                     <span></span>
                 </div>
                 <div>
-                    <ButtonsOnTheRight/>
+                    <ContextLine/>
                 </div>
                 
             </div>

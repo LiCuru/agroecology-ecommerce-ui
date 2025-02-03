@@ -26,9 +26,9 @@ function TrolleyDiv(){
 
 
 
-export default function ButtonsOnTheRight(){
+export default function ContextLine(){
     return(
-        <div className={styles.buttonsOnTheRight}>
+        <div className={styles.contextLine}>
             <TotalInNavbar/>
             <TrolleyDiv/>
           </div>

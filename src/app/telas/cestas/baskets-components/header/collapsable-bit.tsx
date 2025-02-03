@@ -1,6 +1,7 @@
+import { ComboboxDemo } from '@/app/customized-components/combo-box/combo-box';
 import styles from './header.module.sass';
 
-function NextBasketButton(){
+function NextBasketOption(){
 
     return(
         <div className={styles.options}>
@@ -9,25 +10,49 @@ function NextBasketButton(){
     )
 }
 
-function SelectVariablesButton(){
+function SelectAdditionalsOption(
+    props:{
+        tipo: string
+    }
+){
     return (
     <div className={styles.options}>
-        <span>Variáveis</span>
+        <span>{props.tipo}</span>
     </div>
     )
 }
 
+function Dropdowns(){
+    return(
+        <div className={styles.mainContainer}>
+          <div className={styles.producerDropdown}>
+            <ComboboxDemo/>
+          </div>
+          <div className={styles.producerDropdown}>
+            <ComboboxDemo/>
+          </div>
+        </div>
+      );
+}
 
-function NextBasketAndAddedItems(){
+
+function NextBasketAndAdditionals(
+    props:{
+        tipo: string
+    }
+){
     return(
         <div className ={styles.mainContainer}>
             <div className={styles.titleGap}>
                 <div className={styles.title}>
-                <span className={styles.span}>Variáveis</span>
+                <span className={styles.span}>{props.tipo}</span>
                 </div>
+
                 <div className={styles.variablesNavTabs}>
-                    <NextBasketButton/>
-                    <SelectVariablesButton/>
+                    <NextBasketOption/>
+                    <SelectAdditionalsOption
+                        tipo = {props.tipo}
+                    />
                 </div>
             </div>
         </div>
@@ -37,7 +62,10 @@ function NextBasketAndAddedItems(){
 export default function CollapsableBit(){
     return(
         <div className={styles.mainContainer}>
-            <NextBasketAndAddedItems/>
+            <NextBasketAndAdditionals
+                tipo = 'Variáveis'
+            />
+            <Dropdowns/>
         </div>
     )
 }
