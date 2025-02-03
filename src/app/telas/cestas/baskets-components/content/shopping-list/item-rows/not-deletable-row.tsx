@@ -17,13 +17,13 @@ export default function NotDeletableRow (
                 <span>{props.itemPortion}</span>
             </div>
             <div className={styles.itemInfoDiv}>
-                <span>R$: {props.itemPrice}</span>
+                <span>R$: {props.itemPrice.toFixed(2)}</span>
             </div>
             <div className={styles.itemInfoDiv}>
                 <span>{props.chosenQuantity}</span>
             </div>
             <div className={styles.itemInfoDiv}>
-                <span>R$: {props.totalItemPrice}</span>
+                <span>R$: {props.totalItemPrice.toFixed(2)}</span>
             </div>
         </div>
     );
