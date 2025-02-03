@@ -26,10 +26,14 @@ function Dropdowns(){
     return(
         <div className={styles.mainContainer}>
           <div className={styles.producerDropdown}>
-            <ComboboxDemo/>
+            <ComboboxDemo
+                tipo = 'selecionar produtor'
+            />
           </div>
           <div className={styles.producerDropdown}>
-            <ComboboxDemo/>
+            <ComboboxDemo
+                tipo = 'selecionar produto'
+            />
           </div>
         </div>
       );
