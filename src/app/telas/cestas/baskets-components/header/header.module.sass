@@ -18,7 +18,7 @@
   text-align: center
   
 .title
-  margin: 0
+  margin: 10px
   padding: 7px
   height: 50%
   text-align: center
@@ -29,6 +29,7 @@
   line-height: normal
   font-size: 1.8rem
   font-weight: bold
+  margin-bottom: 0.5rem
 
 
 .drowDownContainer
@@ -100,8 +101,6 @@ $optionsHeight: 50px
   div
     height: $optionsHeight
     margin: 0
-    padding-left: 7px
-    padding-right: 7px
     font-size: 1.2rem
 
     //CSS for options seletion
@@ -147,7 +146,7 @@ $optionsHeight: 50px
     //   font-weight: bold
     //   font-size: 1.5rem
     // 
-    
+  
     span
       display: inline-block
       line-height: 100%
@@ -156,20 +155,21 @@ $optionsHeight: 50px
     
   
 
-  .currentBasket
-    flex-direction: column
-    height: $optionsHeight * 0.8
-    margin: $optionsHeight * 0.1
+  .date
+    display: flex
+    align-items: center
+    height: 100%
+    margin: 0
     padding-right: 7px
     padding-left: 7px
 
-    p
-      font-size: 0.8rem
+    .peh
+      font-size: 0.9rem
       text-align: left
       margin: 0
-    //    color: #e6ff99
       color: azure
       cursor: pointer
+      font-weight: bold
     
 
     
@@ -267,7 +267,7 @@ $optionsHeight: 45px
 .options
   background-color: $titleGapBgColor
   display: flex
-  width: 100%
+  width: max-content
   margin: 0
   justify-content: space-around
   text-align: center
@@ -289,15 +289,17 @@ $optionsHeight: 45px
   
 
   //CSS for .options div seletion
-  .selected
-    border-bottom-style: solid
-    border-top-style: solid
-    border-color: azure
-    border-radius: 7px
-    border-width: 2px
-    padding-right: 7px
-    padding-left: 7px
-  
+.optionsSelected
+  height: $optionsHeight
+  border-style: none
+  border-bottom-style: solid
+  border-top-style: solid
+  border-color: azure
+  border-radius: 7px
+  border-width: 2px
+  padding-right: 7px
+  padding-left: 7px
+
 
 
 //this nest applies to all headers

@@ -2,7 +2,7 @@ import styles from './row-header.module.sass';
 
 export default function NotDeletableRowHeader(){
     return(
-        <div className={styles.itemRow}>
+        <div className={styles.itemRowHeader}>
           <div className={styles.itemInfoDiv}>
               <span>Produto</span>
           </div>

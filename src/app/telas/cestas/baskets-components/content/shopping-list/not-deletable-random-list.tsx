@@ -1,9 +1,11 @@
+import NotDeletableRowHeader from "./item-rows-header/not-deletable-row-header";
 import NotDeletableRowTotal from "./item-rows-total/not-deletable-row-total";
 import NotDeletableRow from "./item-rows/not-deletable-row";
 
 export default function NoteletableRandomList(){
     return(
         <div>
+            <NotDeletableRowHeader/>
             <NotDeletableRow
             itemName='Jatobá'
             itemPortion='250g'

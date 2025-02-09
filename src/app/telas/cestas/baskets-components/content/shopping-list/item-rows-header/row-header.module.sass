@@ -1,6 +1,7 @@
 @use  "../../../../colors-and-fonts.scss" as *
 
-.itemRow
+.itemRowHeader
+  position: fixed
   margin: auto
   display: flex
   width: 100%
@@ -42,12 +43,3 @@
     &:nth-of-type(6)
       flex: 0.5
       font-size: 17px
-    
-  
-
-
-
-.itemRow:nth-child(2n)
-  background-color: $whiteBgAndFont
-  span
-    color: $lightDarkFont

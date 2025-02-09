@@ -1,10 +1,14 @@
 import { ComboboxDemo } from '@/app/customized-components/combo-box/combo-box';
 import styles from './header.module.sass';
 
-function NextBasketOption(){
+function NextBasketOption(
+  props : {
+    nextBasketButton: boolean
+  }
+){
 
     return(
-        <div className={styles.options}>
+        <div className={props.nextBasketButton ? styles.optionsSelected : styles.options}>
             <span>Próxima Cesta</span>
         </div>
     )
@@ -12,11 +16,12 @@ function NextBasketOption(){
 
 function SelectAdditionalsOption(
     props:{
-        tipo: string
+      tipo: string
+      selectAdditionalsButton: boolean
     }
 ){
     return (
-    <div className={styles.options}>
+    <div className={props.selectAdditionalsButton ? styles.optionsSelected : styles.options}>
         <span>{props.tipo}</span>
     </div>
     )
@@ -120,7 +125,9 @@ function Dropdowns(){
 
 function NextBasketAndAdditionals(
     props:{
-        tipo: string
+        tipo: string,
+        nextBasketButton: boolean,
+        selectAdditionalsButton: boolean
     }
 ){
     return(
@@ -131,9 +138,11 @@ function NextBasketAndAdditionals(
                 </div>
 
                 <div className={styles.variablesNavTabs}>
-                    <NextBasketOption/>
+                    <NextBasketOption
+                      nextBasketButton = {props.nextBasketButton}/>
                     <SelectAdditionalsOption
-                        tipo = {props.tipo}
+                      selectAdditionalsButton = {props.selectAdditionalsButton}
+                      tipo = {props.tipo}
                     />
                 </div>
             </div>
@@ -141,11 +150,30 @@ function NextBasketAndAdditionals(
     )
 }
 
-export default function CollapsableBit(){
+export default function CollapsableBit(
+  props:{
+  nextBasketButton: boolean,
+  selectAdditionalsButton: boolean
+  }
+  ){
+    
+
+  const state = {
+    // collapsable areas
+    NextBasketAndAdditionals : true,
+    Dropdowns : true,
+  
+    //buttons of NextBasketAndVariablesBit
+    nextBasketButton: props.nextBasketButton,
+    selectAdditionalsButton: props.selectAdditionalsButton,
+  }
+
     return(
         <div className={styles.mainContainer}>
             <NextBasketAndAdditionals
-                tipo = 'Variáveis'
+              nextBasketButton = {state.nextBasketButton}
+              selectAdditionalsButton = {state.selectAdditionalsButton}
+              tipo = 'Variáveis'
             />
             <Dropdowns/>
         </div>

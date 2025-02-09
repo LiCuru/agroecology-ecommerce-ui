@@ -1,5 +1,5 @@
 //import DeletableRandomList from "../baskets-components/content/shopping-list/deletable-random-list";
-// import NotDeletableRandomList from "../baskets-components/content/shopping-list/not-deletable-random-list";
+// import DeletableRandomList from "../baskets-components/content/shopping-list/deletable-random-list";
 
 import SalesScreen from "../baskets-components/content/sales/sales-screen";
 
@@ -14,7 +14,7 @@ export default function Variaveis() {
         <Header/>
       </div>
       <div className={styles.content}>
-        {/* <NotDeletableRandomList/> */}
+        {/* <DeletableRandomList/> */}
         <SalesScreen/>
       </div>
     </div>
