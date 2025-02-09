@@ -13,10 +13,18 @@ export default function Variaveis() {
 
   const [content, setContent] = useState<string>('additionalsSales')
   const [cart, setCart] = useState<boolean>(false)
+  const [sales, setSales] = useState<boolean>(true)
 
   const handleCartClick = () => {
     setContent('additionalsCart')
     setCart(true)
+    setSales(false)
+  }
+
+  const handleSalesClick = () => {
+    setContent('additionalsSales')
+    setCart(false)
+    setSales(true)
   }
 
 
@@ -42,6 +50,9 @@ export default function Variaveis() {
 
           handleCartClick = {handleCartClick}
           cart = {cart}
+
+          handleSalesClick = {handleSalesClick}  
+          sales = {sales}
         />
       </div>
       <div className={styles.content}>

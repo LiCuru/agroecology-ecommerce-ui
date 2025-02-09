@@ -1,9 +1,15 @@
 import styles from './header.module.sass';
 import Image from 'next/image';
 
-function TotalInNavbar(){
+function TotalInNavbar(
+    props:{
+        handleSalesClick: () => void
+        sales: boolean
+    }){
     return(
-    <div className={styles.TotalInNavbar}>
+    <div 
+        className={props.sales? styles.SelectedTotalInNavbar : styles.TotalInNavbar}
+        onClick = {props.handleSalesClick}>
         <p className={styles.Pe}>13 produtos</p>
         <p className={styles.Pe}>R$ 101,00</p>
     </div>
@@ -36,6 +42,9 @@ export default function ContextLine(
         contextLineButtons: boolean
         handleCartClick: () => void
         cart: boolean
+
+        handleSalesClick: () => void
+        sales: boolean
     }
 )
 
@@ -44,7 +53,10 @@ export default function ContextLine(
     if (props.contextLineButtons === true){
         display = 
         <div className={styles.contextLine}>
-            <TotalInNavbar/>
+            <TotalInNavbar
+                handleSalesClick = {props.handleSalesClick}
+                sales = {props.sales}
+            />
             <Cart
                 handleCartClick = {props.handleCartClick}
                 cart = {props.cart}

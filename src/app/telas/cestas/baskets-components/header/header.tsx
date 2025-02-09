@@ -11,6 +11,9 @@ export default function Header(props:
         setContent: (arg: string) => void
         handleCartClick: () => void
         cart: boolean
+
+        handleSalesClick: () => void
+        sales: boolean
     }
 ){
 
@@ -28,7 +31,6 @@ export default function Header(props:
     }
 
     const handleAdditionalsClick = () => {
-        props.setContent('additionals')
         
         setNextBasketButton(false)
         setSelectAdditionalsButton(true)
@@ -55,6 +57,9 @@ export default function Header(props:
                         contextLineButtons = {contextLineButtons}
                         handleCartClick = {props.handleCartClick}
                         cart = {props.cart}
+
+                        handleSalesClick = {props.handleSalesClick}
+                        sales = {props.sales}
                     />
                 </div>
             </div>
