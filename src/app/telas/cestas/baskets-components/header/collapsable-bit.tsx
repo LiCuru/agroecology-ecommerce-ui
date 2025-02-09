@@ -1,5 +1,6 @@
 import { ComboboxDemo } from '@/app/customized-components/combo-box/combo-box';
 import styles from './header.module.sass';
+import { useState } from 'react';
 
 function NextBasketOption(
   props : {
@@ -160,10 +161,20 @@ function Dropdowns(){
       );
 }
 
-function Arrow(){
+function Arrow(
+  props:{
+    handleArrowClick: () => void,
+    nextBasketAndAdditionals: boolean
+  }
+){
   return(
     <div className={styles.arrowDiv}>
-      <div className={styles.arrow}>^</div>
+      <div 
+        className={styles.arrow}
+        onClick={props.handleArrowClick}
+      >
+       {props.nextBasketAndAdditionals? '▲': '▼'}
+      </div>
     </div>
   )
 }
@@ -179,30 +190,30 @@ export default function CollapsableBit(
   }){
     
 
-  const state = {
-    // collapsable areas
-    NextBasketAndAdditionals : true,
-    Dropdowns : true,
-  
-    //buttons of NextBasketAndVariablesBit
-    nextBasketButton: props.nextBasketButton,
-    selectAdditionalsButton: props.selectAdditionalsButton,
+  const handleArrowClick = () => {
+    setNextBasketAndAdditionals(!nextBasketAndAdditionals)
   }
+
+  const [nextBasketAndAdditionals, setNextBasketAndAdditionals] = useState<boolean>(true)
 
     return(
         <div className={styles.mainContainer}>
+            {nextBasketAndAdditionals &&
             <NextBasketAndAdditionals
-              nextBasketButton = {state.nextBasketButton}
+              nextBasketButton = {props.nextBasketButton}
               handleAdditionalsClick = {props.handleAdditionalsClick}
 
 
-              selectAdditionalsButton = {state.selectAdditionalsButton}
+              selectAdditionalsButton = {props.selectAdditionalsButton}
               handleNextBasketClick = {props.handleNextBasketClick}
               tipo = 'Variáveis'
-            />
+            />}
             <div className = {styles.dropdownsAndArrow}>
               <Dropdowns/>
-              <Arrow/>
+              <Arrow
+                handleArrowClick = {handleArrowClick}
+                nextBasketAndAdditionals = {nextBasketAndAdditionals}
+              />
             </div>
         </div>
     )
