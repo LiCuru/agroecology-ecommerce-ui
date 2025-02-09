@@ -12,20 +12,26 @@ export default function Header(props:
     }
 ){
 
-    const [nextBasketButton, setNextBasketButton] = useState(false);
-    const [selectAdditionalsButton, setSelectAdditionalsButton] = useState(true);
+    const [nextBasketButton, setNextBasketButton] = useState<boolean>(false);
+    const [selectAdditionalsButton, setSelectAdditionalsButton] = useState<boolean>(true);
+    const [contextLineButtons, setContextLineButtons] = useState<boolean>(true)
 
     const handleNextBasketClick = () => {
         props.setContent('nextBasket')
 
         setNextBasketButton(true)
         setSelectAdditionalsButton(false)
+
+        setContextLineButtons(false)
     }
 
     const handleAdditionalsClick = () => {
         props.setContent('additionals')
+        
         setNextBasketButton(false)
         setSelectAdditionalsButton(true)
+
+        setContextLineButtons(true)
     }
 
     return (
@@ -43,7 +49,9 @@ export default function Header(props:
                     <p className={styles.peh}>09 Fev 2025</p>
                 </div>
                 <div>
-                    <ContextLine/>
+                    <ContextLine
+                        contextLineButtons = {contextLineButtons}
+                    />
                 </div>
             </div>
         </div>

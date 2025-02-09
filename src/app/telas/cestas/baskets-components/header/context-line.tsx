@@ -23,14 +23,25 @@ function TrolleyDiv(){
     )
 }
 
+export default function ContextLine(
+    props:{
+        contextLineButtons: boolean
+    }
+)
 
-
-
-export default function ContextLine(){
-    return(
+{
+    let display;
+    if (props.contextLineButtons === true){
+        display = 
         <div className={styles.contextLine}>
             <TotalInNavbar/>
             <TrolleyDiv/>
-          </div>
+        </div>
+    } else if (props.contextLineButtons === false){
+        display = ''
+    }
+
+    return(
+        display
     )
 }

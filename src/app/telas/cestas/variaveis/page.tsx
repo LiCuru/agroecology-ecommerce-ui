@@ -13,14 +13,14 @@ export default function Variaveis() {
 
   const [content, setContent] = useState<string>('additionals')
 
-  let theContent;
+  let renderedContent;
 
   switch(content){
     case 'additionals':
-      theContent = <SalesScreen/>;
+      renderedContent = <SalesScreen/>;
       break;
     case 'nextBasket':
-      theContent = <NotDeletableRandomList/>
+      renderedContent = <NotDeletableRandomList/>
   }
 
     return (
@@ -32,7 +32,7 @@ export default function Variaveis() {
         />
       </div>
       <div className={styles.content}>
-        {theContent}  
+        {renderedContent}  
       </div>
     </div>
     )
