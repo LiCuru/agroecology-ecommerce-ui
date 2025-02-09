@@ -33,6 +33,38 @@ function SelectAdditionalsOption(
     )
 }
 
+function NextBasketAndAdditionals(
+  props:{
+      tipo: string,
+      nextBasketButton: boolean,
+      selectAdditionalsButton: boolean
+      handleNextBasketClick : () => void
+      handleAdditionalsClick: () => void
+  }
+){
+  return(
+      <div className ={styles.mainContainer}>
+          <div className={styles.titleGap}>
+              <div className={styles.title}>
+              <span className={styles.span}>{props.tipo}</span>
+              </div>
+
+              <div className={styles.variablesNavTabs}>
+                  <NextBasketOption
+                    nextBasketButton = {props.nextBasketButton}
+                    handleNextBasketClick = {props.handleNextBasketClick}
+                  />
+                  <SelectAdditionalsOption
+                    selectAdditionalsButton = {props.selectAdditionalsButton}
+                    handleAdditionalsClick = {props.handleAdditionalsClick}
+                    tipo = {props.tipo}
+                  />
+              </div>
+          </div>
+      </div>
+  )
+}
+
 function Dropdowns(){
 
     const produtores = [
@@ -128,38 +160,15 @@ function Dropdowns(){
       );
 }
 
-
-function NextBasketAndAdditionals(
-    props:{
-        tipo: string,
-        nextBasketButton: boolean,
-        selectAdditionalsButton: boolean
-        handleNextBasketClick : () => void
-        handleAdditionalsClick: () => void
-    }
-){
-    return(
-        <div className ={styles.mainContainer}>
-            <div className={styles.titleGap}>
-                <div className={styles.title}>
-                <span className={styles.span}>{props.tipo}</span>
-                </div>
-
-                <div className={styles.variablesNavTabs}>
-                    <NextBasketOption
-                      nextBasketButton = {props.nextBasketButton}
-                      handleNextBasketClick = {props.handleNextBasketClick}
-                    />
-                    <SelectAdditionalsOption
-                      selectAdditionalsButton = {props.selectAdditionalsButton}
-                      handleAdditionalsClick = {props.handleAdditionalsClick}
-                      tipo = {props.tipo}
-                    />
-                </div>
-            </div>
-        </div>
-    )
+function Arrow(){
+  return(
+    <div className={styles.arrowDiv}>
+      <div className={styles.arrow}>^</div>
+    </div>
+  )
 }
+
+
 
 export default function CollapsableBit(
   props:{
@@ -191,7 +200,10 @@ export default function CollapsableBit(
               handleNextBasketClick = {props.handleNextBasketClick}
               tipo = 'Variáveis'
             />
-            <Dropdowns/>
+            <div className = {styles.dropdownsAndArrow}>
+              <Dropdowns/>
+              <Arrow/>
+            </div>
         </div>
     )
 }
