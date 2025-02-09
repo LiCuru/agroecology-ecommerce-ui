@@ -10,14 +10,22 @@ function TotalInNavbar(){
     )
 }
 
-function TrolleyDiv(){
+function Cart(
+    props:{
+        handleCartClick: () => void
+        cart: boolean
+    }
+
+){
     return(
-        <div className={styles.trolleyDiv}>
+        <div className={props.cart ? styles.SelectedTrolleyDiv: styles.trolleyDiv}>
             <Image
                 src="/trolleyAzure.png" // Path to the image in the `public` folder
                 alt="My Image"
                 width={25} // Desired width
                 height={25} // Desired height
+                onClick = {props.handleCartClick}
+
             />
         </div>
     )
@@ -26,6 +34,8 @@ function TrolleyDiv(){
 export default function ContextLine(
     props:{
         contextLineButtons: boolean
+        handleCartClick: () => void
+        cart: boolean
     }
 )
 
@@ -35,7 +45,10 @@ export default function ContextLine(
         display = 
         <div className={styles.contextLine}>
             <TotalInNavbar/>
-            <TrolleyDiv/>
+            <Cart
+                handleCartClick = {props.handleCartClick}
+                cart = {props.cart}
+            />
         </div>
     } else if (props.contextLineButtons === false){
         display = ''

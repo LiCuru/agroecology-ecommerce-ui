@@ -9,6 +9,8 @@ export default function Header(props:
     {
         content: string
         setContent: (arg: string) => void
+        handleCartClick: () => void
+        cart: boolean
     }
 ){
 
@@ -51,6 +53,8 @@ export default function Header(props:
                 <div>
                     <ContextLine
                         contextLineButtons = {contextLineButtons}
+                        handleCartClick = {props.handleCartClick}
+                        cart = {props.cart}
                     />
                 </div>
             </div>
