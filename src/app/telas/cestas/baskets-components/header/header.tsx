@@ -31,6 +31,7 @@ export default function Header(props:
     }
 
     const handleAdditionalsClick = () => {
+        props.handleSalesClick()
         
         setNextBasketButton(false)
         setSelectAdditionalsButton(true)
