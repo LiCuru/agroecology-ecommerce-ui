@@ -44,7 +44,7 @@ function NextBasketAndAdditionals(
   }
 ){
   return(
-      <div className ={styles.mainContainer}>
+      <div className ={styles.firstContainer}>
           <div className={styles.titleGap}>
               <div className={styles.title}>
               <span className={styles.span}>{props.tipo}</span>
