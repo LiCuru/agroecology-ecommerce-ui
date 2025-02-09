@@ -4,11 +4,14 @@ import styles from './header.module.sass';
 function NextBasketOption(
   props : {
     nextBasketButton: boolean
+    handleNextBasketClick: () => void
   }
 ){
 
     return(
-        <div className={props.nextBasketButton ? styles.optionsSelected : styles.options}>
+        <div
+          className={props.nextBasketButton ? styles.optionsSelected : styles.options}
+          onClick = {props.handleNextBasketClick}>
             <span>Próxima Cesta</span>
         </div>
     )
@@ -18,10 +21,13 @@ function SelectAdditionalsOption(
     props:{
       tipo: string
       selectAdditionalsButton: boolean
+      handleAdditionalsClick: () => void
     }
 ){
     return (
-    <div className={props.selectAdditionalsButton ? styles.optionsSelected : styles.options}>
+    <div
+      className={props.selectAdditionalsButton ? styles.optionsSelected : styles.options}
+      onClick = {props.handleAdditionalsClick}>
         <span>{props.tipo}</span>
     </div>
     )
@@ -128,6 +134,8 @@ function NextBasketAndAdditionals(
         tipo: string,
         nextBasketButton: boolean,
         selectAdditionalsButton: boolean
+        handleNextBasketClick : () => void
+        handleAdditionalsClick: () => void
     }
 ){
     return(
@@ -139,9 +147,12 @@ function NextBasketAndAdditionals(
 
                 <div className={styles.variablesNavTabs}>
                     <NextBasketOption
-                      nextBasketButton = {props.nextBasketButton}/>
+                      nextBasketButton = {props.nextBasketButton}
+                      handleNextBasketClick = {props.handleNextBasketClick}
+                    />
                     <SelectAdditionalsOption
                       selectAdditionalsButton = {props.selectAdditionalsButton}
+                      handleAdditionalsClick = {props.handleAdditionalsClick}
                       tipo = {props.tipo}
                     />
                 </div>
@@ -154,8 +165,9 @@ export default function CollapsableBit(
   props:{
   nextBasketButton: boolean,
   selectAdditionalsButton: boolean
-  }
-  ){
+  handleNextBasketClick:  () => void
+  handleAdditionalsClick: () => void
+  }){
     
 
   const state = {
@@ -172,7 +184,11 @@ export default function CollapsableBit(
         <div className={styles.mainContainer}>
             <NextBasketAndAdditionals
               nextBasketButton = {state.nextBasketButton}
+              handleAdditionalsClick = {props.handleAdditionalsClick}
+
+
               selectAdditionalsButton = {state.selectAdditionalsButton}
+              handleNextBasketClick = {props.handleNextBasketClick}
               tipo = 'Variáveis'
             />
             <Dropdowns/>
