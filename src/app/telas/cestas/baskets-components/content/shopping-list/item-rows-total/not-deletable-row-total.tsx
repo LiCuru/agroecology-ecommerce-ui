@@ -19,7 +19,7 @@ export default function NotDeletableRowTotal (
               <span>TOTAL</span>
           </div>
           <div className={styles.itemInfoDiv}>
-              <span>{props.totalPrice}</span>
+              R$: <span>{props.totalPrice}</span>
           </div>
       </div>
   );
