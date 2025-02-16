@@ -81,7 +81,6 @@
   .downArrow
     padding-top: 10px
     padding-bottom: 25px
-  
 
 
 $optionsHeight: 50px
@@ -109,6 +108,50 @@ $desktop: 2024px
   .logo
     display: none
 
+
+  .producerDropdown
+    background-color: $titleGapBgColor
+    // background-color: $headerAndTotalBg
+    color: $whiteBgAndFont
+    padding: 10px
+    padding: 7px
+    height: 50%
+    text-align: center
+
+
+    span
+      display: inline-block
+      vertical-align: middle
+      line-height: normal
+      font-size: 1rem
+
+  .SubMenuBar
+    background-color: #192a3b
+    display: flex
+    //width: 100%
+    margin: 0
+    padding-left: 20px
+    padding-right: 20px
+    justify-content: space-between
+    text-align: center
+    height: $optionsHeight*1.2
+
+    div
+      height: $optionsHeight
+
+      // CSS for options seletion
+      // &:first-of-type
+      //   font-weight: bold
+      //   font-size: 1.5rem
+      // 
+    
+      span
+        display: inline-block
+        line-height: 100%
+        vertical-align: middle
+        color: $whiteBgAndFont
+    
+
 //tablet
 @include breakpoint($phone $tablet)
 
@@ -135,11 +178,121 @@ $desktop: 2024px
 
   .arrow
     display: none
+
+
+  .producerDropdown
+    background-color: $titleGapBgColor
+    // background-color: $headerAndTotalBg
+    color: $whiteBgAndFont
+    padding: 10px
+    padding: 7px
+    height: auto
+    text-align: center
+    margin: 10px
+
+
+    span
+      display: inline-block
+      vertical-align: middle
+      line-height: normal
+      font-size: 1rem
+
+  .SubMenuBar
+    background-color: #192a3b
+    display: flex
+    //width: 100%
+    margin: 0
+    padding-left: 20px
+    padding-right: 20px
+    justify-content: space-between
+    text-align: center
+    height: $optionsHeight*1.2
+
+    div
+      height: $optionsHeight
+
+      // CSS for options seletion
+      // &:first-of-type
+      //   font-weight: bold
+      //   font-size: 1.5rem
+      // 
+    
+      span
+        display: inline-block
+        line-height: 100%
+        vertical-align: middle
+        color: $whiteBgAndFont
   
     
+//desktop
+@include breakpoint($tablet $desktop)
+
+  .hiddenDivAndCollapsableContainer
+    margin-bottom: 0
+    padding: 0
+    width: $contentwidth
+    margin: auto
+    height: 100%
+    display: flex
+    flex-direction: row
+
+  .logo
+    width: 200px
+    margin-left: 40px
+
+  .collapsableBitContainer
+    margin-bottom: 0
+    padding: 0
+    width: 70vw
+    height: 100%
+    display: contents
+
+  .arrowDiv
+    display: none
+
+  .arrow
+    display: none
+
+  .producerDropdown
+    background-color: $titleGapBgColor
+    color: $whiteBgAndFont
+    text-align: center
+    height: min-content
+    padding: 7px
 
 
+    span
+      display: inline-block
+      vertical-align: middle
+      line-height: normal
+      font-size: 1rem
 
+  .SubMenuBar
+    background-color: #192a3b
+    display: flex
+    width: $contentwidth
+    //width: 100%
+    margin: auto
+    padding-left: 20px
+    padding-right: 20px
+    justify-content: space-between
+    text-align: center
+    height: $optionsHeight*1.2
+
+    div
+      height: $optionsHeight
+
+      // CSS for options seletion
+      // &:first-of-type
+      //   font-weight: bold
+      //   font-size: 1.5rem
+      // 
+    
+      span
+        display: inline-block
+        line-height: 100%
+        vertical-align: middle
+        color: $whiteBgAndFont
 
   
     
@@ -185,163 +338,134 @@ $desktop: 2024px
   border-color: azure
   border-radius: 7px
   border-width: 2px
+    
+  
 
-
-//this nest applies only to <HeaderOfVariablesAndNextBasket/>
-
-.SubMenuBar
-  background-color: #192a3b
+.date
   display: flex
-  //width: 100%
+  align-items: center
+  height: 100%
   margin: 0
-  padding-left: 20px
-  padding-right: 20px
-  justify-content: space-between
-  text-align: center
-  height: $optionsHeight*1.2
+  padding-right: 7px
+  padding-left: 7px
 
-  div
-    height: $optionsHeight
-
-    // CSS for options seletion
-    // &:first-of-type
-    //   font-weight: bold
-    //   font-size: 1.5rem
-    // 
-  
-    span
-      display: inline-block
-      line-height: 100%
-      vertical-align: middle
-      color: $whiteBgAndFont
-    
-  
-
-  .date
-    display: flex
-    align-items: center
-    height: 100%
+  .peh
+    font-size: 0.9rem
+    text-align: left
     margin: 0
-    padding-right: 7px
-    padding-left: 7px
-
-    .peh
-      font-size: 0.9rem
-      text-align: left
-      margin: 0
-      color: azure
-      font-weight: bold
-    
+    color: azure
+    font-weight: bold
+  
 
     
   
 
-  .contextLine 
-    display: flex
+.contextLine 
+  display: flex
 
-      
-    .trolleyDiv
-      margin-top: 8px
-      padding-bottom: 3px
-      padding-top: 8px
-      padding-right: 7px
-      padding-left: 5px
-      vertical-align: middle
-      height: 85%
-      cursor: pointer 
+    
+.trolleyDiv
+  margin-top: 8px
+  padding-bottom: 3px
+  padding-top: 8px
+  padding-right: 7px
+  padding-left: 5px
+  vertical-align: middle
+  height: 85%
+  cursor: pointer 
 
-      .trolleyIcon
-        height: 80%
-      
+  .trolleyIcon
+    height: 80%
+  
+
+
+.SelectedTrolleyDiv
+  margin-top: 5px
+  border-style: none
+  border-bottom-style: solid
+  border-top-style: solid
+  border-color: azure
+  border-radius: 7px
+  border-width: 2px
+  padding-top: 10px
+  padding-right: 5px
+  padding-left: 5px
+  
     
 
-    .SelectedTrolleyDiv
-      margin-top: 5px
-      border-style: none
-      border-bottom-style: solid
-      border-top-style: solid
-      border-color: azure
-      border-radius: 7px
-      border-width: 2px
-      padding-top: 10px
-      padding-right: 5px
-      padding-left: 5px
-      
-        
-  
-    .TotalInNavbar 
-      height: $optionsHeight * 0.8
-      margin: $optionsHeight * 0.09
-      padding-top: $optionsHeight * 0.13
-      padding-right: 7px
-      padding-left: 7px
-  
-      .Pe
-        font-size: 0.7rem
-        text-align: center
-        margin: 0
-        color: azure
-        cursor: pointer
-      
-  
-      .Pe:first-of-type
-        font-weight: bold
-      
-    
+.TotalInNavbar 
+  height: $optionsHeight * 0.8
+  margin: $optionsHeight * 0.09
+  padding-top: $optionsHeight * 0.13
+  padding-right: 7px
+  padding-left: 7px
 
-
-    .SelectedTotalInNavbar
-      margin-right: 5px
-      margin-top: 5px
-      border-style: none
-      border-bottom-style: solid
-      border-top-style: solid
-      border-color: azure
-      border-radius: 7px
-      border-width: 2px
-      padding-top: 5px
-      padding-left: 5px
-      padding-right: 5px
-
-      .Pe
-        font-size: 0.7rem
-        text-align: center
-        margin: 0
-        color: azure
-        cursor: pointer
-      
-  
-      .Pe:first-of-type
-        font-weight: bold
-    
+  .Pe
+    font-size: 0.7rem
+    text-align: center
+    margin: 0
+    color: azure
+    cursor: pointer
   
 
-  .currentBasket
-    height: $optionsHeight * 0.8
-    margin: $optionsHeight * 0.1
-    padding-top: $optionsHeight * 0.13
-    padding-right: 7px
-    padding-left: 7px
-
-    .Pe
-      font-size: 0.7rem
-      text-align: center
-      margin: 0
-      color: azure
-      cursor: pointer
-
-    span
-      display: inline-block
-      line-height: $optionsHeight * 0.7
-      vertical-align: middle
-    
-  
+  .Pe:first-of-type
+    font-weight: bold
   
 
 
-  .hidden
-    display: none
+
+.SelectedTotalInNavbar
+  margin-right: 5px
+  margin-top: 5px
+  border-style: none
+  border-bottom-style: solid
+  border-top-style: solid
+  border-color: azure
+  border-radius: 7px
+  border-width: 2px
+  padding-top: 5px
+  padding-left: 5px
+  padding-right: 5px
+
+  .Pe
+    font-size: 0.7rem
+    text-align: center
+    margin: 0
+    color: azure
+    cursor: pointer
   
+
+  .Pe:first-of-type
+    font-weight: bold
+
+
+
+.currentBasket
+  height: $optionsHeight * 0.8
+  margin: $optionsHeight * 0.1
+  padding-top: $optionsHeight * 0.13
+  padding-right: 7px
+  padding-left: 7px
+
+  .Pe
+    font-size: 0.7rem
+    text-align: center
+    margin: 0
+    color: azure
+    cursor: pointer
+
+  span
+    display: inline-block
+    line-height: $optionsHeight * 0.7
+    vertical-align: middle
+  
+
+
+
+
+.hidden
+  display: none
+
 
 
 //the .options nest applies only to <HeaderOfPastBaskets/> and <HeaderOfCommitmentBasket/>
@@ -396,24 +520,6 @@ $optionsHeight: 45px
     font-weight: bold
     color: $whiteBgAndFont
     font-size: 0.8rem
-  
-
-
-.producerDropdown
-  background-color: $titleGapBgColor
-  // background-color: $headerAndTotalBg
-  color: $whiteBgAndFont
-  padding: 10px
-  padding: 7px
-  height: 50%
-  text-align: center
-
-
-  span
-    display: inline-block
-    vertical-align: middle
-    line-height: normal
-    font-size: 1rem
   
 
 .dropdownsAndArrow

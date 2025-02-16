@@ -17,15 +17,15 @@ $desktop: 2024px
     width: 42vw
 
   .productImage
-      width: 95%
-      height: 35.2vw
-      background-size: 130%
-      background-position: center
-      z-index: 3
-      box-shadow: 0px 0px 5px 3px  #FFFF89
-      border-color: #FFFF89
-      border-radius: 30px
-      margin: 5px
+    width: 95%
+    height: 35.2vw
+    background-size: 130%
+    background-position: center
+    z-index: 3
+    box-shadow: 0px 0px 5px 3px  #FFFF89
+    border-color: #FFFF89
+    border-radius: 30px
+    margin: 5px
 
 
 //tablet
@@ -43,6 +43,28 @@ $desktop: 2024px
   .productImage
     width: 95%
     height: 20.95vw
+    background-size: 130%
+    background-position: center
+    z-index: 3
+    box-shadow: 0px 0px 5px 3px  #FFFF89
+    border-color: #FFFF89
+    border-radius: 30px
+    margin: 5px
+
+//desktop
+@include breakpoint($tablet $desktop)
+  .productAvatar
+    display: inline-block
+    margin: 5px
+    width: min-content
+    border-radius: 25px
+    text-align: center
+    margin-bottom: 50px
+    width: 11.76vw
+
+  .productImage
+    width: 95%
+    height: 9.85vw
     background-size: 130%
     background-position: center
     z-index: 3

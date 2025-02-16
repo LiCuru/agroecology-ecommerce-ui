@@ -1,24 +1,28 @@
+@use  "../../../colors-and-fonts.scss" as *
+  
 @import '../../../../../../../node_modules/breakpoint-sass/stylesheets/_breakpoint.scss'
+
 
 
 $phone: 640px
 $tablet: 900px
 $desktop: 2024px  
   
-.salesFrame
-  font-family: sans-serif
-  margin: 0
-  padding: 0
-  width: 100%
-  height: 100%
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/photos/background/agroforest.jpg') center center
-  background-attachment: fixed
-  background-size: cover
-  background-blend-mode: darken
-  overflow: auto
-
 //phone
 @include breakpoint(0px $phone) 
+
+  .salesFrame
+    font-family: sans-serif
+    margin: 0
+    padding: 0
+    width: 100%
+    height: 100%
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/photos/background/agroforest.jpg') center center
+    background-attachment: fixed
+    background-size: cover
+    background-blend-mode: darken
+    overflow: auto
+
   .profileImg 
     width: 100%
     border-style: hidden
@@ -27,8 +31,39 @@ $desktop: 2024px
     margin: auto
     box-shadow: 0px 0px 7px Black, 0px 0px 7px Black
 
+  .profileName
+    color: azure
+    font-weight: bold
+    font-size: 20px
+    text-align: center
+
+  .productType 
+    display: block
+    position: relative
+    text-align: center
+    font-size:  1.5rem
+    font-weight: bold
+    clear: both
+    color: azure
+    padding: 0
+    padding-top: 5vh
+    margin: 0
+
 //tablet
 @include breakpoint($phone $tablet)
+
+  .salesFrame
+    font-family: sans-serif
+    margin: 0
+    padding: 0
+    width: 100%
+    height: 100%
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/photos/background/agroforest.jpg') center center
+    background-attachment: fixed
+    background-size: cover
+    background-blend-mode: darken
+    overflow: auto
+
   .profileImg 
     width: 70%
     border-style: hidden
@@ -37,30 +72,71 @@ $desktop: 2024px
     margin: auto
     box-shadow: 0px 0px 7px Black, 0px 0px 7px Black
 
-.profileName
-  color: azure
-  font-weight: bold
-  font-size: 20px
-  text-align: center
+  .profileName
+    color: azure
+    font-weight: bold
+    font-size: 20px
+    text-align: center
 
+  .productType 
+    display: block
+    position: relative
+    text-align: center
+    font-size:  1.5rem
+    font-weight: bold
+    clear: both
+    color: azure
+    padding: 0
+    padding-top: 5vh
+    margin: 0
 
-.productType 
-  display: block
-  position: relative
-  text-align: center
-  font-size:  1.5rem
-  font-weight: bold
-  clear: both
-  color: azure
-  padding: 0
-  padding-top: 5vh
-  margin: 0
+//desktop
+@include breakpoint($tablet $desktop)
+
+  .salesFrame
+    font-family: sans-serif
+    margin: 0
+    padding: 0
+    width: $contentwidth
+    margin: auto
+    height: 100%
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/photos/background/agroforest.jpg') center center
+    background-attachment: fixed
+    background-size: cover
+    background-blend-mode: darken
+    overflow: auto
+
+  .profileImg 
+    width: 50%
+    border-style: hidden
+    border-color: black
+    border-width: 4px
+    border-radius: 30px
+    margin: auto
+    box-shadow: 0px 0px 7px Black, 0px 0px 7px Black
+
+  .profileName
+    color: azure
+    font-weight: bold
+    font-size: 40px
+    text-align: center
+  .productType 
+    display: block
+    position: relative
+    text-align: center
+    font-size:  3rem
+    font-weight: bold
+    clear: both
+    color: azure
+    padding: 0
+    padding-top: 5vh
+    margin: 0
 
 
 .productsDiv
   display: flex
   flex-wrap: wrap
-  justify-content: space-between
+  justify-content: space-evenly
   width: 100%
   margin: 0
 
