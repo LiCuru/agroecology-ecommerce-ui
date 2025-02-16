@@ -11,17 +11,20 @@ import styles from "./style.module.sass";
 
 export default function Variaveis() {
 
-  const [content, setContent] = useState<string>('additionalsSales')
   const [cart, setCart] = useState<boolean>(false)
   const [sales, setSales] = useState<boolean>(true)
+  const [additionalsContent, setadditionalsContent] = useState<string>('additionalsSales')
+  const [content, setContent] = useState<string>(additionalsContent)
 
   const handleCartClick = () => {
+    setadditionalsContent('additionalsCart')
     setContent('additionalsCart')
     setCart(true)
     setSales(false)
   }
 
   const handleSalesClick = () => {
+    setadditionalsContent('additionalsSales')
     setContent('additionalsSales')
     setCart(false)
     setSales(true)
@@ -45,8 +48,9 @@ export default function Variaveis() {
     <div className={styles.flexContainer}>
       <div className={styles.header}>
         <Header
-          content = {content}
           setContent = {setContent}
+
+          additionalsContent = {additionalsContent}
 
           handleCartClick = {handleCartClick}
           cart = {cart}

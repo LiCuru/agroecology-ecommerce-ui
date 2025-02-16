@@ -1,6 +1,7 @@
 import { ComboboxDemo } from '@/app/customized-components/combo-box/combo-box';
 import styles from './header.module.sass';
 import { useState } from 'react';
+import Image from "next/image";
 
 function NextBasketOption(
   props : {
@@ -50,7 +51,7 @@ function NextBasketAndAdditionals(
               <span className={styles.span}>{props.tipo}</span>
               </div>
 
-              <div className={styles.variablesNavTabs}>
+              <div className={styles.additionalsNavTabs}>
                   <NextBasketOption
                     nextBasketButton = {props.nextBasketButton}
                     handleNextBasketClick = {props.handleNextBasketClick}
@@ -197,7 +198,17 @@ export default function CollapsableBit(
   const [nextBasketAndAdditionals, setNextBasketAndAdditionals] = useState<boolean>(true)
 
     return(
-        <div className={styles.mainContainer}>
+      <div className={styles.hiddenDivAndCollapsableContainer}>
+        <div className={styles.logo}>
+            <Image
+                src= {'/logo-completo.jpg'}
+                alt='logo do Livres'
+                width={200}
+                height={200}
+                style = {{ margin: 'auto' }}
+            />
+        </div>
+        <div className={styles.collapsableBitContainer}>
             {nextBasketAndAdditionals &&
             <NextBasketAndAdditionals
               nextBasketButton = {props.nextBasketButton}
@@ -216,5 +227,6 @@ export default function CollapsableBit(
               />
             </div>
         </div>
+      </div>
     )
 }

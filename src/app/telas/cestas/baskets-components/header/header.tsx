@@ -3,11 +3,12 @@ import ContextLine from "./context-line";
 import CollapsableBit from "./collapsable-bit";
 import styles from "./header.module.sass";
 import { useState } from "react";
+
 // import DisplayItemRowHeader from "../content/shopping-list/item-rows-header/display-item-row-header";
 
 export default function Header(props:
     {
-        content: string
+        additionalsContent: string
         setContent: (arg: string) => void
         handleCartClick: () => void
         cart: boolean
@@ -21,6 +22,7 @@ export default function Header(props:
     const [selectAdditionalsButton, setSelectAdditionalsButton] = useState<boolean>(true);
     const [contextLineButtons, setContextLineButtons] = useState<boolean>(true)
 
+    //NextBasket = Próxima Cesta
     const handleNextBasketClick = () => {
         props.setContent('nextBasket')
 
@@ -30,8 +32,9 @@ export default function Header(props:
         setContextLineButtons(false)
     }
 
+    //Additionals = Variáveis
     const handleAdditionalsClick = () => {
-        props.handleSalesClick()
+        props.setContent(props.additionalsContent)
         
         setNextBasketButton(false)
         setSelectAdditionalsButton(true)
