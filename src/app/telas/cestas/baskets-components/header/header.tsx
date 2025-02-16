@@ -52,7 +52,7 @@ export default function Header(props:
                 handleAdditionalsClick = {handleAdditionalsClick}
 
             />
-            <div className={styles.variablesSubMenu}>
+            <div className={styles.SubMenuBar}>
                 <div className={styles.date}>
                     <p className={styles.peh}>09 Fev 2025</p>
                 </div>

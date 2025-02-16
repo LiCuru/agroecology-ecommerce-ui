@@ -94,7 +94,7 @@ $optionsHeight: 50px
   height: 100%
 
 $phone: 640px
-$landscapeTablet: 900px
+$tablet: 900px
 $desktop: 2024px
 
 //phone
@@ -109,8 +109,8 @@ $desktop: 2024px
   .logo
     display: none
 
-//landscapeTablet
-@include breakpoint($phone $landscapeTablet)
+//tablet
+@include breakpoint($phone $tablet)
 
   .hiddenDivAndCollapsableContainer
     margin-bottom: 0
@@ -189,7 +189,7 @@ $desktop: 2024px
 
 //this nest applies only to <HeaderOfVariablesAndNextBasket/>
 
-.variablesSubMenu
+.SubMenuBar
   background-color: #192a3b
   display: flex
   //width: 100%
@@ -230,7 +230,6 @@ $desktop: 2024px
       text-align: left
       margin: 0
       color: azure
-      cursor: pointer
       font-weight: bold
     
 
@@ -249,10 +248,10 @@ $desktop: 2024px
       padding-left: 5px
       vertical-align: middle
       height: 85%
+      cursor: pointer 
 
       .trolleyIcon
         height: 80%
-        cursor: pointer 
       
     
 
@@ -267,6 +266,7 @@ $desktop: 2024px
       padding-top: 10px
       padding-right: 5px
       padding-left: 5px
+      
         
   
     .TotalInNavbar 
@@ -355,6 +355,7 @@ $optionsHeight: 45px
   justify-content: space-around
   text-align: center
   height: $optionsHeight
+  cursor: pointer
 
   div
     height: $optionsHeight*0.8
@@ -382,6 +383,7 @@ $optionsHeight: 45px
   border-width: 2px
   padding-right: 7px
   padding-left: 7px
+  cursor: pointer
 
 
 
