@@ -12,7 +12,7 @@ Thanks for your attention!
 ### Bem-vind@!
 Esse projeto é uma interface de usuário de ecommerce para uma cooperativa que trabalha com agroecologia.
 Eu estou re escrevendo este [projeto antigo](https://licuru.github.io/agriculture_ecommerce_ui/) feito em react com javascript para NextJS com Typescript
-É possível [visualizar neste link]([https://agroecology-ecommerce-ui.vercel.app/telas/cestas/variaveis)
+É possível [visualizar neste link](https://agroecology-ecommerce-ui.vercel.app/telas/cestas/variaveis)
 Para visualizar no Chrome ou no Firefox, coloque em mobile view (CTRL + SHIFT + M), eu estou escrevendo seguindo [o princípio de design do mobile first](https://www.geeksforgeeks.org/mobile-first-design/)
 
 Obrigada pela sua atenção!
