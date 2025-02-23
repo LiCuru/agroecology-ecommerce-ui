@@ -51,6 +51,7 @@ export default function Header(props:
                 selectAdditionalsButton = {selectAdditionalsButton}
                 handleAdditionalsClick = {handleAdditionalsClick}
 
+
             />
             <div className={styles.SubMenuBar}>
                 <div className={styles.date}>

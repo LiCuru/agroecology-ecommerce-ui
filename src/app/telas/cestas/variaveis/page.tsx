@@ -29,8 +29,6 @@ export default function Variaveis() {
     setCart(false)
     setSales(true)
   }
-
-
   let renderedContent;
 
   switch(content){

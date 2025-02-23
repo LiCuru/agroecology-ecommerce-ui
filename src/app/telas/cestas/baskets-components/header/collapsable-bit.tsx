@@ -68,80 +68,7 @@ function NextBasketAndAdditionals(
 }
 
 function Dropdowns(){
-
-    const produtores = [
-        {
-          value: "Todos os produtores",
-          label: "Todos os produtores",
-        },
-        {
-          value: "Rose Amarandi",
-          label: "Rose Amarandi",
-        },
-        {
-          value: "Lilian Pedroso",
-          label: "Lilian Pedroso",
-        },
-        {
-          value: "Cecília Teixeira",
-          label: "Cecília Teixeira",
-        },
-        {
-          value: "Margarida Serena",
-          label: "Margarida Serena",
-        },
-        {
-          value: "Joaquim Genésio",
-          label: "Joaquim Genésio",
-        },
-        {
-          value: "Pedro Novalle",
-          label: "Pedro Novalle",
-        },
-        {
-          value: "Mariana Rosa",
-          label: "Mariana Rosa",
-        },
-        {
-          value: "José Gomes",
-          label: "José Gomes",
-        },
-        {
-          value: "Lucas Silva",
-          label: "Lucas Silva",
-        },
-      ]
-
-      const tiposDeProduto = [
-        {
-          value: "Todas as categorias",
-          label: "Todas as categorias",
-        },
-        {
-          value: "Hortaliças",
-          label: "Hortaliças",
-        },
-        {
-          value: "Processados",
-          label: "Processados",
-        },
-        {
-          value: "Grãos",
-          label: "Grãos",
-        },
-        {
-          value: "Bebidas Prontas",
-          label: "Bebidas Prontas",
-        },
-        {
-          value: "Chás",
-          label: "Chás",
-        },
-        {
-          value: "Laticínios",
-          label: "Laticínios",
-        },
-      ]
+   
 
 
     return(
@@ -149,13 +76,13 @@ function Dropdowns(){
           <div className={styles.producerDropdown}>
             <ComboboxDemo
                 tipo = 'selecionar produtor'
-                opcoes = {produtores}
+                fetchApi = '/api/produtores'
             />
           </div>
           <div className={styles.producerDropdown}>
             <ComboboxDemo
                 tipo = 'selecionar categoria'
-                opcoes={tiposDeProduto}
+                fetchApi = '/api/produtores'
             />
           </div>
         </div>
@@ -185,9 +112,9 @@ function Arrow(
 export default function CollapsableBit(
   props:{
   nextBasketButton: boolean,
-  selectAdditionalsButton: boolean
-  handleNextBasketClick:  () => void
-  handleAdditionalsClick: () => void
+  selectAdditionalsButton: boolean,
+  handleNextBasketClick:  () => void,
+  handleAdditionalsClick: () => void,
   }){
     
 
@@ -220,7 +147,8 @@ export default function CollapsableBit(
               tipo = 'Variáveis'
             />}
             <div className = {styles.dropdownsAndArrow}>
-              <Dropdowns/>
+              <Dropdowns
+              />
               <Arrow
                 handleArrowClick = {handleArrowClick}
                 nextBasketAndAdditionals = {nextBasketAndAdditionals}

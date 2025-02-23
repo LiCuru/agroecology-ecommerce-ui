@@ -18,19 +18,52 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { useEffect, useState } from 'react'
+
+// Define the type for the API response
+interface ApiResponse {
+  message: string;
+  data?: number[];
+}
 
 export function ComboboxDemo(
   props:{
     tipo: string,
-    opcoes: {value:string,
-      label: string
-    }[]
+    fetchApi: string
   }
   
 ) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 
+  const [data, setData] = useState<ApiResponse | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Fetch data from the API route
+    fetch(props.fetchApi)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        console.log(response)
+        return response.json() as Promise<ApiResponse>;
+      })
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return 'Loading...';
+  if (error) return error;
+
+  if (data != null)
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -41,7 +74,7 @@ export function ComboboxDemo(
           className="w-[200px] justify-between "
         >
           {value
-            ? props.opcoes.find((framework) => framework.value === value)?.label
+            ? data.find((framework) => framework.produtor === value)?.produtor
             : props.tipo}
           <ChevronsUpDown className="opacity-50" />
         </Button>
@@ -52,20 +85,20 @@ export function ComboboxDemo(
           <CommandList>
             <CommandEmpty>Não encontrado</CommandEmpty>
             <CommandGroup>
-              {props.opcoes.map((framework) => (
+              {data.map((framework) => (
                 <CommandItem
-                  key={framework.value}
-                  value={framework.value}
+                  key={framework.id}
+                  value={framework.produtor}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                   }}
                 >
-                  {framework.label}
+                  {framework.produtor}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === framework.value ? "opacity-100" : "opacity-0"
+                      value === framework.produtor ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem>
