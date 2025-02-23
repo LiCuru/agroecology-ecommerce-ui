@@ -201,7 +201,7 @@ export default function CollapsableBit(
       <div className={styles.hiddenDivAndCollapsableContainer}>
         <div className={styles.logo}>
             <Image
-                src= {'/logo-completo.jpg'}
+                src= {'/logo_transparente.png'}
                 alt='logo do Livres'
                 width={200}
                 height={200}

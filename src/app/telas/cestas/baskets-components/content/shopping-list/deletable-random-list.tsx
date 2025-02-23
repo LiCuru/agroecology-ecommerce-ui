@@ -1,10 +1,13 @@
 import DeletableRowHeader from "./item-rows-header/deletable-row-header";
 import DeletableRowTotal from "./item-rows-total/deletable-row-total";
 import DeletableRow from "./item-rows/deletable-row";
+import styles from './rows.module.sass';
+
+
 
 export default function DeletableRandomList(){
     return(
-        <div>
+        <div className={styles.listContainer}>
             <DeletableRowHeader/>
             <DeletableRow
             itemName='Jatobá'
