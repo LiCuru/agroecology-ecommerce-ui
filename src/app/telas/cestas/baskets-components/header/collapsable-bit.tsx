@@ -68,8 +68,20 @@ function NextBasketAndAdditionals(
 }
 
 function Dropdowns(){
-   
+  const[produtor, setProdutor] = useState('');
+  const[urlWithParams, seturlWithParams] = useState(`/api/categoria-produtos?`)
 
+    function atualizarProdutor(produtor: string){
+      setProdutor(produtor)
+
+      const param = {
+        produtor: produtor
+      };
+    
+      const queryString = new URLSearchParams(param).toString();
+
+      seturlWithParams(`/api/categoria-produtos?${queryString}`)
+    }
 
     return(
         <div className={styles.mainContainer}>
@@ -77,12 +89,14 @@ function Dropdowns(){
             <ComboboxDemo
                 tipo = 'produtor'
                 fetchApi = '/api/produtores'
+                atualizarProdutor = {atualizarProdutor}
             />
           </div>
           <div className={styles.producerDropdown}>
             <ComboboxDemo
                 tipo = 'Categoria'
-                fetchApi = '/api/categoria-produtos'
+                fetchApi = {urlWithParams}
+                produtor = {produtor}
             />
           </div>
         </div>

@@ -26,10 +26,16 @@ interface ApiResponse {
   data?: number[];
 }
 
+type atualizarProdutor = (produtor: string) => void;
+
 export function ComboboxDemo(
   props:{
     tipo: string,
-    fetchApi: string
+    fetchApi: string,
+    atualizarProdutor: atualizarProdutor,
+    produtor: string
+
+
   }
   
 ) {
@@ -39,6 +45,8 @@ export function ComboboxDemo(
   const [data, setData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  console.log(props.fetchApi)
 
   useEffect(() => {
     // Fetch data from the API route
@@ -52,13 +60,14 @@ export function ComboboxDemo(
       })
       .then((data) => {
         setData(data);
+        console.log(data)
         setLoading(false);
       })
       .catch((error) => {
         setError(error.message);
         setLoading(false);
       });
-  }, []);
+  }, [props.fetchApi]);
 
   if (loading) return 'Loading...';
   if (error) return error;
@@ -88,7 +97,7 @@ export function ComboboxDemo(
         className="w-[200px] justify-between "
       >
         {value
-          ? data.find((framework) => framework.Categoria === value)?.Categoria
+          ? data.find((framework) => framework.categoria === value)?.categoria
           : props.tipo}
         <ChevronsUpDown className="opacity-50" />
       </Button>
@@ -108,6 +117,7 @@ export function ComboboxDemo(
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
+                    props.atualizarProdutor(framework.produtor)
                   }}
                 >
                   {framework.produtor}
@@ -119,18 +129,18 @@ export function ComboboxDemo(
                   />
                 </CommandItem> :
                 <CommandItem
-                  key={framework.id}
-                  value={framework.Categoria}
+                  key={framework.categoria}
+                  value={framework.categoria}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                   }}
                 >
-                  {framework.Categoria}
+                  {framework.categoria}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === framework.Categoria ? "opacity-100" : "opacity-0"
+                      value === framework.categoria ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem> 

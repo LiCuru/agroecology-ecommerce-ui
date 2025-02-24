@@ -20,8 +20,10 @@ export default async function handler(
       database: process.env.DB_NAME,
     });
 
+    const {produtor} = req.query
+
     // Query the database
-    const [rows] = await connection.execute<ResultSetHeader[]>('select id, Categoria from CategoriasProdutos;');
+    const [rows] = await connection.execute<ResultSetHeader[]>(`select unique categoria from produtos where produtor = "${produtor}"`);
 
     // Close the connection
     await connection.end();
