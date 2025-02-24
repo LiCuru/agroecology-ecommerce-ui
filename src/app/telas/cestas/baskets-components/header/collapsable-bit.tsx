@@ -75,14 +75,14 @@ function Dropdowns(){
         <div className={styles.mainContainer}>
           <div className={styles.producerDropdown}>
             <ComboboxDemo
-                tipo = 'selecionar produtor'
+                tipo = 'produtor'
                 fetchApi = '/api/produtores'
             />
           </div>
           <div className={styles.producerDropdown}>
             <ComboboxDemo
-                tipo = 'selecionar categoria'
-                fetchApi = '/api/produtores'
+                tipo = 'Categoria'
+                fetchApi = '/api/categoria-produtos'
             />
           </div>
         </div>
