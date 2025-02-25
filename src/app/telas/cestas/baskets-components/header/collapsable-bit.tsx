@@ -2,6 +2,7 @@ import { ComboboxDemo } from '@/app/customized-components/combo-box/combo-box';
 import styles from './header.module.sass';
 import { useState } from 'react';
 import Image from "next/image";
+import { stringify } from 'querystring';
 
 function NextBasketOption(
   props : {
@@ -78,18 +79,26 @@ function Dropdowns(
 
   }
 ){
-  const[urlWithParams, seturlWithParams] = useState(`/api/categoria-produtos?`)
+
+
+
+  const[categoriesDropdownUrl, setCategoriesDropdownUrl] = useState(`/api/categoria-produtos?`)
+
 
     function atualizarProdutor(produtor: string){
       props.setProducer(produtor)
 
-      const param = {
+      const categoriesDropdownParam = {
         produtor: produtor
       };
     
-      const queryString = new URLSearchParams(param).toString();
+      const queryString = new URLSearchParams(categoriesDropdownParam).toString();
 
-      seturlWithParams(`/api/categoria-produtos?${queryString}`)
+      setCategoriesDropdownUrl(`/api/categoria-produtos?${queryString}`)
+    }
+
+    function atualizarCategoria(categoria: string){
+      props.setCategory(categoria)
     }
 
 
@@ -107,9 +116,9 @@ function Dropdowns(
           <div className={styles.producerDropdown}>
             <ComboboxDemo
                 tipo = 'Categoria'
-                fetchApi = {urlWithParams}
+                fetchApi = {categoriesDropdownUrl}
 
-                produtor = {props.producer}
+                atualizarCategoria = {atualizarCategoria}
             />
           </div>
         </div>

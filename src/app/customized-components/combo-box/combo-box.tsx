@@ -21,15 +21,14 @@ import {
 import { useEffect, useState } from 'react'
 
 type atualizarProdutor = (produtor: string) => void;
+type atualizarCategoria = (categoria: string) => void;
 
 export function ComboboxDemo(
   props:{
     tipo: string,
     fetchApi: string,
     atualizarProdutor: atualizarProdutor,
-    produtor: string
-
-
+    atualizarCategoria: atualizarCategoria,
   }
   
 ) {
@@ -123,7 +122,7 @@ export function ComboboxDemo(
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
-                    props.atualizarProdutor(framework.produtor)
+                    props.atualizarProdutor(currentValue === value ? "" : currentValue)
                   }}
                 >
                   {framework.produtor}
@@ -141,6 +140,7 @@ export function ComboboxDemo(
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
+                    props.atualizarCategoria(currentValue === value ? "" : currentValue)
                   }}
                 >
                   {framework.categoria}
