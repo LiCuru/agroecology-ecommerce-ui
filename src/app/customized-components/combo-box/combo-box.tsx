@@ -90,7 +90,7 @@ export function ComboboxDemo(
           >
             {value
               ? data.find((framework) => framework.produtor === value)?.produtor
-              : props.tipo}
+              : "todos os produtores"}
             <ChevronsUpDown className="opacity-50" />
           </Button>
         </PopoverTrigger>
@@ -104,7 +104,7 @@ export function ComboboxDemo(
           >
             {value
               ? data.find((framework) => framework.categoria === value)?.categoria
-              : props.tipo}
+              : "todas as categorias"}
             <ChevronsUpDown className="opacity-50" />
           </Button>
         </PopoverTrigger>

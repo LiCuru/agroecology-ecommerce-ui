@@ -27,7 +27,7 @@ export default function ProductAvatar(
       <div className={styles.productDescription}>
         <p className={styles.productName}>{props.name}</p>
         <p className={styles.productDetail}>{props.portion}</p>
-        <p className={styles.productDetail}>
+        <div className={styles.productDetail}>
           <Image
           className={styles.productPriceImage} 
           src={"https://livresbs.com.br/produtos/icon-livremercado.png"} // Path to the image in the `public` folder
@@ -36,8 +36,8 @@ export default function ProductAvatar(
           height={100} // Desired height
           />
           R$ {props.preco_mercado.toFixed(2)}
-        </p>
-        <p className={styles.productDetail}>
+        </div>
+        <div className={styles.productDetail}>
           <Image
           className={styles.productPriceImage} 
           src={"https://livresbs.com.br/produtos/icon-consciente.png"} // Path to the image in the `public` folder
@@ -46,8 +46,8 @@ export default function ProductAvatar(
           height={100} // Desired height
           />
           R$ {props.preco_lojinha.toFixed(2)}
-        </p>
-        <p className={styles.productDetailSelected}>
+        </div>
+        <div className={styles.productDetailSelected}>
           <Image
           className={styles.productPriceImage} 
           src={"https://livresbs.com.br/produtos/icon-comboio.png"} // Path to the image in the `public` folder
@@ -59,7 +59,7 @@ export default function ProductAvatar(
           <div className = {styles.productDiscount}>
             {(100 - (props.preco_mercado * 100)/props.preco).toFixed(0)} %
           </div>
-        </p>
+        </div>
       </div>
       
       <div className={styles.setOfQuantityButtons}>
