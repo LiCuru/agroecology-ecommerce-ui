@@ -8,6 +8,12 @@ import { useState } from "react";
 
 export default function Header(props:
     {
+        setProducer:(arg: string) => void
+        producer: string
+
+        setCategory:(arg: string) => void
+        category: string
+
         additionalsContent: string
         setContent: (arg: string) => void
         handleCartClick: () => void
@@ -45,6 +51,13 @@ export default function Header(props:
     return (
         <div className={styles.header}>
             <CollapsableBit
+
+                setProducer = {props.setProducer}
+                producer = {props.producer}
+
+                setCategory = {props.setCategory}
+                category = {props.category}
+
                 nextBasketButton = {nextBasketButton}
                 handleNextBasketClick ={handleNextBasketClick} 
 

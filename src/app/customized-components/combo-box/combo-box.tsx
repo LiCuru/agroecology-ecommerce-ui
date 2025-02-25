@@ -42,10 +42,22 @@ export function ComboboxDemo(
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 
-  const [data, setData] = useState<ApiResponse | null>(null);
+
+  type Produtor = {
+    id: number;
+    produtor: string;
+  };
+
+  type Categoria = {
+    id: number;
+    categoria: string;
+  };
+
+
+
+  const [data, setData] = useState<ApiResponse | Produtor[] | Categoria[]| null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
   console.log(props.fetchApi)
 
   useEffect(() => {
@@ -72,36 +84,38 @@ export function ComboboxDemo(
   if (loading) return 'Loading...';
   if (error) return error;
 
-  if (data != null)
+  console.log(data)
+  if (data != null && data.constructor === Array)
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      {props.tipo === 'produtor' ?
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-[200px] justify-between "
-        >
-          {value
-            ? data.find((framework) => framework.produtor === value)?.produtor
-            : props.tipo}
-          <ChevronsUpDown className="opacity-50" />
-        </Button>
-      </PopoverTrigger>:
-      <PopoverTrigger asChild>
-      <Button
-        variant="outline"
-        role="combobox"
-        aria-expanded={open}
-        className="w-[200px] justify-between "
-      >
-        {value
-          ? data.find((framework) => framework.categoria === value)?.categoria
-          : props.tipo}
-        <ChevronsUpDown className="opacity-50" />
-      </Button>
-    </PopoverTrigger>
+      {props.tipo === 'produtor' ? // PRODUTOR
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-[200px] justify-between "
+          >
+            {value
+              ? data.find((framework) => framework.produtor === value)?.produtor
+              : props.tipo}
+            <ChevronsUpDown className="opacity-50" />
+          </Button>
+        </PopoverTrigger>
+        : // CATEGORIA DO PRODUTO
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-[200px] justify-between "
+          >
+            {value
+              ? data.find((framework) => framework.categoria === value)?.categoria
+              : props.tipo}
+            <ChevronsUpDown className="opacity-50" />
+          </Button>
+        </PopoverTrigger>
       }
       <PopoverContent className="w-[200px] p-0 bg-gray-900 text-white">
         <Command>
@@ -110,7 +124,7 @@ export function ComboboxDemo(
             <CommandEmpty>Não encontrado</CommandEmpty>
             <CommandGroup>
               {data.map((framework) => (
-                props.tipo === 'produtor' ? 
+                props.tipo === 'produtor' ? // PRODUTOR
                 <CommandItem
                   key={framework.id}
                   value={framework.produtor}
@@ -127,7 +141,8 @@ export function ComboboxDemo(
                       value === framework.produtor ? "opacity-100" : "opacity-0"
                     )}
                   />
-                </CommandItem> :
+                </CommandItem>
+                : // CATEGORIA DO PRODUTO
                 <CommandItem
                   key={framework.categoria}
                   value={framework.categoria}

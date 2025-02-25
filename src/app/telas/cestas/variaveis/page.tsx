@@ -11,6 +11,9 @@ import styles from "./style.module.sass";
 
 export default function Variaveis() {
 
+  const [producer, setProducer] = useState<string>()
+  const [category, setCategory] = useState<string>()
+
   const [cart, setCart] = useState<boolean>(false)
   const [sales, setSales] = useState<boolean>(true)
   const [additionalsContent, setadditionalsContent] = useState<string>('additionalsSales')
@@ -46,6 +49,13 @@ export default function Variaveis() {
     <div className={styles.flexContainer}>
       <div className={styles.header}>
         <Header
+
+          setProducer = {setProducer}
+          producer = {producer}
+
+          setCategory = {setCategory}
+          category = {category}
+
           setContent = {setContent}
 
           additionalsContent = {additionalsContent}
@@ -55,6 +65,8 @@ export default function Variaveis() {
 
           handleSalesClick = {handleSalesClick}  
           sales = {sales}
+
+
         />
       </div>
       <div className={styles.content}>

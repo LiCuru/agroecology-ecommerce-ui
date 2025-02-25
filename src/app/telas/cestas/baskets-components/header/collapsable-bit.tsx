@@ -67,12 +67,21 @@ function NextBasketAndAdditionals(
   )
 }
 
-function Dropdowns(){
-  const[produtor, setProdutor] = useState('');
+function Dropdowns(
+  props:
+  {
+    setProducer : (arg: string) => void
+    producer: string
+
+    setCategory : (arg: string) => void
+    category: string
+
+  }
+){
   const[urlWithParams, seturlWithParams] = useState(`/api/categoria-produtos?`)
 
     function atualizarProdutor(produtor: string){
-      setProdutor(produtor)
+      props.setProducer(produtor)
 
       const param = {
         produtor: produtor
@@ -83,12 +92,15 @@ function Dropdowns(){
       seturlWithParams(`/api/categoria-produtos?${queryString}`)
     }
 
+
+
     return(
         <div className={styles.mainContainer}>
           <div className={styles.producerDropdown}>
             <ComboboxDemo
                 tipo = 'produtor'
                 fetchApi = '/api/produtores'
+
                 atualizarProdutor = {atualizarProdutor}
             />
           </div>
@@ -96,7 +108,8 @@ function Dropdowns(){
             <ComboboxDemo
                 tipo = 'Categoria'
                 fetchApi = {urlWithParams}
-                produtor = {produtor}
+
+                produtor = {props.producer}
             />
           </div>
         </div>
@@ -125,8 +138,16 @@ function Arrow(
 
 export default function CollapsableBit(
   props:{
+
+  setProducer:(arg: string) => void
+  producer: string
+
+  setCategory:(arg: string) => void
+  category: string
+
   nextBasketButton: boolean,
   selectAdditionalsButton: boolean,
+
   handleNextBasketClick:  () => void,
   handleAdditionalsClick: () => void,
   }){
@@ -162,6 +183,12 @@ export default function CollapsableBit(
             />}
             <div className = {styles.dropdownsAndArrow}>
               <Dropdowns
+                setProducer = {props.setProducer}
+                producer = {props.producer}
+
+                setCategory = {props.setCategory}
+                category = {props.category}
+
               />
               <Arrow
                 handleArrowClick = {handleArrowClick}
