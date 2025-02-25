@@ -11,8 +11,8 @@ import styles from "./style.module.sass";
 
 export default function Variaveis() {
 
-  const [producer, setProducer] = useState<string>()
-  const [category, setCategory] = useState<string>()
+  const [producer, setProducer] = useState<string>('')
+  const [category, setCategory] = useState<string>('')
 
   const [cart, setCart] = useState<boolean>(false)
   const [sales, setSales] = useState<boolean>(true)
@@ -36,7 +36,9 @@ export default function Variaveis() {
 
   switch(content){
     case 'additionalsSales':
-      renderedContent = <SalesScreen/>;
+      renderedContent = <SalesScreen
+                          fetchApi = {'/api/filtered-sales-products'}
+                        />;
       break;
     case 'additionalsCart':
       renderedContent = <DeletableRandomList/>;

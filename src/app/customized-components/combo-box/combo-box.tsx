@@ -20,12 +20,6 @@ import {
 } from "@/components/ui/popover"
 import { useEffect, useState } from 'react'
 
-// Define the type for the API response
-interface ApiResponse {
-  message: string;
-  data?: number[];
-}
-
 type atualizarProdutor = (produtor: string) => void;
 
 export function ComboboxDemo(
@@ -55,7 +49,7 @@ export function ComboboxDemo(
 
 
 
-  const [data, setData] = useState<ApiResponse | Produtor[] | Categoria[]| null>(null);
+  const [data, setData] = useState< Produtor[] | Categoria[]| null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   console.log(props.fetchApi)
@@ -68,7 +62,7 @@ export function ComboboxDemo(
           throw new Error('Network response was not ok');
         }
         console.log(response)
-        return response.json() as Promise<ApiResponse>;
+        return response.json() as Promise<Produtor[]| Categoria[] >;
       })
       .then((data) => {
         setData(data);
@@ -83,8 +77,6 @@ export function ComboboxDemo(
 
   if (loading) return 'Loading...';
   if (error) return error;
-
-  console.log(data)
   if (data != null && data.constructor === Array)
   return (
     <Popover open={open} onOpenChange={setOpen}>
