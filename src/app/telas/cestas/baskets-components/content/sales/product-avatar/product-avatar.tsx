@@ -3,29 +3,61 @@ import Image from 'next/image';
 
 export default function ProductAvatar(
     props: {
-        speciesPicture: string,
+        productPicture: string|null,
         name: string,
         portion: string,
-        price: number
+        preco_mercado: number
+        preco_lojinha: number
+        preco_produtor: number
     }
 ){
 
-    const speciesPicture = props.speciesPicture;
+    const productPicture = props.productPicture;
 
     return(
     <div className={styles.productAvatar}>
       <Image
         className={styles.productImage} 
-        src={"/photos/plantsByScientificName/"+speciesPicture+"/Principal.jpg"} // Path to the image in the `public` folder
-        alt="foto do produto"
+        src={productPicture? "https://livresbs.com.br/"+productPicture : "https://livresbs.com.br/images/produtos/padrao.png"} // Path to the image in the `public` folder
+        alt= "foto do produto"
         width={100} // Desired width
         height={100} // Desired height
       />
       <div className={styles.productDescription}>
         <p className={styles.productName}>{props.name}</p>
         <p className={styles.productDetail}>{props.portion}</p>
-        <p className={styles.productDetail}>R$ {props.price.toFixed(2)}</p>
+        <p className={styles.productDetail}>
+          <Image
+          className={styles.productPriceImage} 
+          src={"https://livresbs.com.br/produtos/icon-livremercado.png"} // Path to the image in the `public` folder
+          alt= "foto do tipo de preço"
+          width={100} // Desired width
+          height={100} // Desired height
+          />
+          R$ {props.preco_mercado.toFixed(2)}
+        </p>
+        <p className={styles.productDetail}>
+          <Image
+          className={styles.productPriceImage} 
+          src={"https://livresbs.com.br/produtos/icon-consciente.png"} // Path to the image in the `public` folder
+          alt= "foto do tipo de preço"
+          width={100} // Desired width
+          height={100} // Desired height
+          />
+          R$ {props.preco_lojinha.toFixed(2)}
+        </p>
+        <p className={styles.productDetailSelected}>
+          <Image
+          className={styles.productPriceImage} 
+          src={"https://livresbs.com.br/produtos/icon-comboio.png"} // Path to the image in the `public` folder
+          alt= "foto do tipo de preço"
+          width={100} // Desired width
+          height={100} // Desired height
+          />
+          R$ {props.preco_produtor.toFixed(2)}
+        </p>
       </div>
+      
       <div className={styles.setOfQuantityButtons}>
         <div className={styles.quantityButton}>
           <p>-</p>

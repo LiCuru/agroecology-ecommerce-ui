@@ -16,7 +16,7 @@ export default function SalesScreen(
         unidade: string,
         preco_mercado: number,
         preco_lojinha: number,
-        preco_pre: number,
+        preco_produtor: number,
         imagem: string
     }
 
@@ -61,9 +61,11 @@ export default function SalesScreen(
                     return(
                     <ProductAvatar
                         key = {produto.nome}
-                        speciesPicture = {produto.imagem}
+                        productPicture = {produto.imagem}
                         name = {produto.nome}
-                        price = {produto.preco_pre}
+                        preco_mercado = {produto.preco_mercado}
+                        preco_lojinha = {produto.preco_lojinha}
+                        preco_produtor = {produto.preco_produtor}
                         portion = {produto.unidade}
                     />)
                 })}
