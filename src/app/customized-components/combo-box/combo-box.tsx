@@ -61,12 +61,12 @@ export function ComboboxDemo(
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        console.log(response)
+        //console.log(response)
         return response.json() as Promise<Produtor[]| Categoria[] >;
       })
       .then((data) => {
         setData(data);
-        console.log(data)
+        //console.log(data)
         setLoading(false);
       })
       .catch((error) => {

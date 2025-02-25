@@ -13,6 +13,7 @@ export default function SalesScreen(
         nome: string,
         categoria: string,
         produtor: string,
+        unidade: string,
         preco_mercado: number,
         preco_lojinha: number,
         preco_pre: number,
@@ -48,6 +49,7 @@ export default function SalesScreen(
     if (loading) return 'Loading...';
     if (error) return error;
 
+    console.log('produtos')
     console.log(data)
     if (data != null && data.constructor === Array)
     return(
@@ -55,160 +57,16 @@ export default function SalesScreen(
             <ProducerAvatar/>
             <h3 className={styles.productType}>hortaliças</h3>
             <div className={styles.productsDiv}>
-
-
-
-
-
-
-
-                <ProductAvatar
-                    speciesPicture = 'Artocarpussp'
-                    name = 'Fruta Pão'
-                    portion = '1 Kg'
-                    price = {3}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Caryocarbrasiliense'
-                    name = 'Pequi'
-                    portion = '500 g'
-                    price = {10}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Copaiferalangsdorffiidesf'
-                    name = 'Copaíba'
-                    portion = '300 g'
-                    price = {10}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Malfigiaemarginata'
-                    name = 'Acerola'
-                    portion = '500 g'
-                    price = {3}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Aloevera'
-                    name = 'Babosa'
-                    portion = '500 g'
-                    price = {10}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Dipteryxalata'
-                    name = 'Barú'
-                    portion = '150 g'
-                    price = {15}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Eugeniadysenterica'
-                    name = 'Cagaita'
-                    portion = '500 g'
-                    price = {12}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Hymenaeacourbaril'
-                    name = 'Jatobá'
-                    portion = '500 g'
-                    price = {15}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Tamarindusindical'
-                    name = 'Tamarindo'
-                    portion = '300 g'
-                    price = {17}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Malfigiaemarginata'
-                    name = 'Acerola'
-                    portion = '300 g'
-                    price = {17}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Aloevera'
-                    name = 'Babosa'
-                    portion = '500 g'
-                    price = {10}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Dipteryxalata'
-                    name = 'Barú'
-                    portion = '150 g'
-                    price = {15}
-                />
-            </div>
-            <h3 className={styles.productType}>Bebidas</h3>
-            <div className={styles.productsDiv}>
-                <ProductAvatar
-                    speciesPicture = 'Artocarpussp'
-                    name = 'Fruta Pão'
-                    portion = '1 Kg'
-                    price = {3}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Caryocarbrasiliense'
-                    name = 'Pequi'
-                    portion = '500 g'
-                    price = {10}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Copaiferalangsdorffiidesf'
-                    name = 'Copaíba'
-                    portion = '300 g'
-                    price = {10}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Malfigiaemarginata'
-                    name = 'Acerola'
-                    portion = '500 g'
-                    price = {3}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Aloevera'
-                    name = 'Babosa'
-                    portion = '500 g'
-                    price = {10}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Dipteryxalata'
-                    name = 'Barú'
-                    portion = '150 g'
-                    price = {15}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Eugeniadysenterica'
-                    name = 'Cagaita'
-                    portion = '500 g'
-                    price = {12}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Hymenaeacourbaril'
-                    name = 'Jatobá'
-                    portion = '500 g'
-                    price = {15}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Tamarindusindical'
-                    name = 'Tamarindo'
-                    portion = '300 g'
-                    price = {17}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Malfigiaemarginata'
-                    name = 'Acerola'
-                    portion = '300 g'
-                    price = {17}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Aloevera'
-                    name = 'Babosa'
-                    portion = '500 g'
-                    price = {10}
-                />
-                <ProductAvatar
-                    speciesPicture = 'Dipteryxalata'
-                    name = 'Barú'
-                    portion = '150 g'
-                    price = {15}
-                />
+                {data.map((produto) =>{
+                    return(
+                    <ProductAvatar
+                        key = {produto.nome}
+                        speciesPicture = {produto.imagem}
+                        name = {produto.nome}
+                        price = {produto.preco_pre}
+                        portion = {produto.unidade}
+                    />)
+                })}
             </div>
         </div>
     )
