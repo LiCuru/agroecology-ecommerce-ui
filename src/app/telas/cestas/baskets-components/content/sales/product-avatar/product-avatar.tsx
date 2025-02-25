@@ -3,12 +3,13 @@ import Image from 'next/image';
 
 export default function ProductAvatar(
     props: {
+
         productPicture: string|null,
         name: string,
         portion: string,
         preco_mercado: number
         preco_lojinha: number
-        preco_produtor: number
+        preco: number
     }
 ){
 
@@ -54,7 +55,10 @@ export default function ProductAvatar(
           width={100} // Desired width
           height={100} // Desired height
           />
-          R$ {props.preco_produtor.toFixed(2)}
+          R$ {props.preco.toFixed(2)}
+          <div className = {styles.productDiscount}>
+            {(100 - (props.preco_mercado * 100)/props.preco).toFixed(0)} %
+          </div>
         </p>
       </div>
       
