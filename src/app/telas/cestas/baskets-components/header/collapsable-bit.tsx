@@ -77,6 +77,8 @@ function Dropdowns(
     setCategory : (arg: string) => void
     category: string
 
+    updateSalesScreen: () => void
+
   }
 ){
 
@@ -95,10 +97,12 @@ function Dropdowns(
       const queryString = new URLSearchParams(categoriesDropdownParam).toString();
 
       setCategoriesDropdownUrl(`/api/categoria-produtos?${queryString}`)
+      props.updateSalesScreen()
     }
 
     function atualizarCategoria(categoria: string){
       props.setCategory(categoria)
+      props.updateSalesScreen()
     }
 
 
@@ -154,6 +158,8 @@ export default function CollapsableBit(
   setCategory:(arg: string) => void
   category: string
 
+  updateSalesScreen: () => void
+
   nextBasketButton: boolean,
   selectAdditionalsButton: boolean,
 
@@ -197,6 +203,8 @@ export default function CollapsableBit(
 
                 setCategory = {props.setCategory}
                 category = {props.category}
+
+                updateSalesScreen = {props.updateSalesScreen}
 
               />
               <Arrow

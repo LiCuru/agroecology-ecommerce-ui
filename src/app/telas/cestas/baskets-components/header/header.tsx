@@ -14,6 +14,8 @@ export default function Header(props:
         setCategory:(arg: string) => void
         category: string
 
+        updateSalesScreen: () => void
+
         additionalsContent: string
         setContent: (arg: string) => void
         handleCartClick: () => void
@@ -57,6 +59,8 @@ export default function Header(props:
 
                 setCategory = {props.setCategory}
                 category = {props.category}
+
+                updateSalesScreen = {props.updateSalesScreen}
 
                 nextBasketButton = {nextBasketButton}
                 handleNextBasketClick ={handleNextBasketClick} 

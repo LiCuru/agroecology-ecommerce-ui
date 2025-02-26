@@ -32,12 +32,30 @@ export default function Variaveis() {
     setCart(false)
     setSales(true)
   }
+
+  const [salesScreenFetchUrl, setSalesScreenFetchUrl] = useState('/api/sales-products?')
+  
+  function updateSalesScreen(){
+    const salesScreenParams = {
+      producer : producer,
+      category : category
+    }
+  
+    const queryString = new URLSearchParams(salesScreenParams).toString();
+
+    setSalesScreenFetchUrl(`/api/sales-products?${queryString}`)
+    console.log(salesScreenFetchUrl)
+  }
+  
+
+
+
   let renderedContent;
 
   switch(content){
     case 'additionalsSales':
       renderedContent = <SalesScreen
-                          fetchApi = {'/api/filtered-sales-products'}
+                          fetchApi = {salesScreenFetchUrl}
                         />;
       break;
     case 'additionalsCart':
@@ -59,6 +77,7 @@ export default function Variaveis() {
           category = {category}
 
           setContent = {setContent}
+          updateSalesScreen = {updateSalesScreen}
 
           additionalsContent = {additionalsContent}
 

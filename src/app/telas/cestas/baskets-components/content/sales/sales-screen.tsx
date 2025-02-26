@@ -10,6 +10,7 @@ export default function SalesScreen(
 ){
 
     type Produto = {
+        id: string
         nome: string,
         categoria: string,
         produtor: string,
@@ -60,7 +61,7 @@ export default function SalesScreen(
                 {data.map((produto) =>{
                     return(
                     <ProductAvatar
-                        key = {produto.nome}
+                        key = {produto.id}
                         productPicture = {produto.imagem}
                         name = {produto.nome}
                         preco_mercado = {produto.preco_mercado}

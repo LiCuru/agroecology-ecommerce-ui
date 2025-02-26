@@ -3,12 +3,12 @@ import Image from 'next/image';
 
 export default function ProductAvatar(
     props: {
-
+        key : number,
         productPicture: string|null,
         name: string,
         portion: string,
-        preco_mercado: number
-        preco_lojinha: number
+        preco_mercado: number,
+        preco_lojinha: number,
         preco: number
     }
 ){
