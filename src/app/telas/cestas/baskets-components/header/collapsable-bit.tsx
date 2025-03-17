@@ -1,6 +1,6 @@
 import { ComboboxDemo } from '@/app/customized-components/combo-box/combo-box';
 import styles from './header.module.sass';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from "next/image";
 import { stringify } from 'querystring';
 
@@ -77,7 +77,7 @@ function Dropdowns(
     setCategory : (arg: string) => void
     category: string
 
-    updateSalesScreen: () => void
+    setSalesScreenFetchUrl: (FetchUrl: string) => void
 
   }
 ){
@@ -86,24 +86,28 @@ function Dropdowns(
 
   const[categoriesDropdownUrl, setCategoriesDropdownUrl] = useState(`/api/categoria-produtos?`)
 
+    const [producer, setProducer] = useState<string>('')
+    const [category, setCategory] = useState<string>('')
 
-    function atualizarProdutor(produtor: string){
-      props.setProducer(produtor)
 
+    useEffect(() => {
+      // This will run whenever `producer` changes
       const categoriesDropdownParam = {
-        produtor: produtor
+        produtor: producer,
       };
-    
       const queryString = new URLSearchParams(categoriesDropdownParam).toString();
+      setCategoriesDropdownUrl(`/api/categoria-produtos?${queryString}`);
+    
+      const salesScreenParams = {
+        producer: producer,
+        category: category,
+      };
 
-      setCategoriesDropdownUrl(`/api/categoria-produtos?${queryString}`)
-      props.updateSalesScreen()
-    }
+      const salesQueryString = new URLSearchParams(salesScreenParams).toString();
+      props.setSalesScreenFetchUrl(`/api/sales-products?${salesQueryString}`);
+      console.log('props.setSalesScreenFetchUrl ----' + `/api/sales-products?${salesQueryString}`)
+    }, [producer, category]); // Run this effect when `producer` or `category` changes
 
-    function atualizarCategoria(categoria: string){
-      props.setCategory(categoria)
-      props.updateSalesScreen()
-    }
 
 
 
@@ -113,16 +117,15 @@ function Dropdowns(
             <ComboboxDemo
                 tipo = 'produtor'
                 fetchApi = '/api/produtores'
-
-                atualizarProdutor = {atualizarProdutor}
+                setProducer = {setProducer}
             />
           </div>
           <div className={styles.producerDropdown}>
             <ComboboxDemo
                 tipo = 'Categoria'
                 fetchApi = {categoriesDropdownUrl}
+                setCategory = {setCategory}
 
-                atualizarCategoria = {atualizarCategoria}
             />
           </div>
         </div>
@@ -158,7 +161,7 @@ export default function CollapsableBit(
   setCategory:(arg: string) => void
   category: string
 
-  updateSalesScreen: () => void
+  setSalesScreenFetchUrl: (FetchUrl: string) => void
 
   nextBasketButton: boolean,
   selectAdditionalsButton: boolean,
@@ -204,7 +207,7 @@ export default function CollapsableBit(
                 setCategory = {props.setCategory}
                 category = {props.category}
 
-                updateSalesScreen = {props.updateSalesScreen}
+                setSalesScreenFetchUrl = {props.setSalesScreenFetchUrl}
 
               />
               <Arrow

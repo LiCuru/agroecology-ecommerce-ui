@@ -20,15 +20,15 @@ import {
 } from "@/components/ui/popover"
 import { useEffect, useState } from 'react'
 
-type atualizarProdutor = (produtor: string) => void;
-type atualizarCategoria = (categoria: string) => void;
+type setProducer = (produtor:string) => void;
+type setCategory = (categoria:string) => void;
 
 export function ComboboxDemo(
   props:{
     tipo: string,
     fetchApi: string,
-    atualizarProdutor: atualizarProdutor,
-    atualizarCategoria: atualizarCategoria,
+    setProducer: setProducer,
+    setCategory: setCategory
   }
   
 ) {
@@ -122,7 +122,8 @@ export function ComboboxDemo(
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
-                    props.atualizarProdutor(currentValue === value ? "" : currentValue)
+                    props.setProducer(currentValue === value ? "" : currentValue)
+                    console.log(`props.atualizarProdutor ${currentValue}`)
                   }}
                 >
                   {framework.produtor}
@@ -140,7 +141,8 @@ export function ComboboxDemo(
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
-                    props.atualizarCategoria(currentValue === value ? "" : currentValue)
+                    console.log("props.atualizarCategoria" + value)
+                    props.setCategory(currentValue === value ? "" : currentValue)
                   }}
                 >
                   {framework.categoria}

@@ -10,7 +10,7 @@ export default function SalesScreen(
 ){
 
     type Produto = {
-        id: string
+        id: number
         nome: string,
         categoria: string,
         produtor: string,
@@ -33,20 +33,23 @@ export default function SalesScreen(
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        console.log(response)
         return response.json() as Promise<Produto[]>;
         })
         .then((data) => {
         setData(data);
-        console.log(data)
         setLoading(false);
         })
         .catch((error) => {
         setError(error.message);
         setLoading(false);
+        }).
+        finally(()=>
+        {
+            console.log('finally props.fetchApi ------' + props.fetchApi)
         });
     }, [props.fetchApi]);
 
+    console.log('props.fetchApi ------' + props.fetchApi)
     if (loading) return 'Loading...';
     if (error) return error;
 

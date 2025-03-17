@@ -33,19 +33,7 @@ export default function Variaveis() {
     setSales(true)
   }
 
-  const [salesScreenFetchUrl, setSalesScreenFetchUrl] = useState('/api/sales-products?')
-  
-  function updateSalesScreen(){
-    const salesScreenParams = {
-      producer : producer,
-      category : category
-    }
-  
-    const queryString = new URLSearchParams(salesScreenParams).toString();
-
-    setSalesScreenFetchUrl(`/api/sales-products?${queryString}`)
-    console.log(salesScreenFetchUrl)
-  }
+  const [salesScreenFetchUrl, setSalesScreenFetchUrl] = useState('/api/sales-products?producer=&category=')
   
 
 
@@ -77,7 +65,7 @@ export default function Variaveis() {
           category = {category}
 
           setContent = {setContent}
-          updateSalesScreen = {updateSalesScreen}
+          setSalesScreenFetchUrl = {setSalesScreenFetchUrl}
 
           additionalsContent = {additionalsContent}
 
