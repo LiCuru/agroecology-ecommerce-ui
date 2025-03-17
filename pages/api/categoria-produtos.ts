@@ -21,9 +21,14 @@ export default async function handler(
     });
 
     const {produtor} = req.query
-
+    let selectQuery = ''
+    if (produtor === ''){
+      selectQuery = `select unique categoria from produtos`
+    } else {
+      selectQuery = `select unique categoria from produtos where produtor = "${produtor}"`
+    }
     // Query the database
-    const [rows] = await connection.execute<ResultSetHeader[]>(`select unique categoria from produtos where produtor = "${produtor}"`);
+    const [rows] = await connection.execute<ResultSetHeader[]>(selectQuery);
 
     // Close the connection
     await connection.end();

@@ -51,7 +51,7 @@ export function ComboboxDemo(
   const [data, setData] = useState< Produtor[] | Categoria[]| null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  console.log(props.fetchApi)
+  console.log('COMBO-BOX:  '+ props.fetchApi)
 
   useEffect(() => {
     // Fetch data from the API route

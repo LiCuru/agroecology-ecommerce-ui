@@ -84,7 +84,7 @@ function Dropdowns(
 
 
 
-  const[categoriesDropdownUrl, setCategoriesDropdownUrl] = useState(`/api/categoria-produtos?`)
+  const[categoriesDropdownUrl, setCategoriesDropdownUrl] = useState(`/api/categoria-produtos?produtor=`)
 
     const [producer, setProducer] = useState<string>('')
     const [category, setCategory] = useState<string>('')
