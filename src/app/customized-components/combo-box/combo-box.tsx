@@ -22,13 +22,16 @@ import { useEffect, useState } from 'react'
 
 type setProducer = (produtor:string) => void;
 type setCategory = (categoria:string) => void;
+type setCategoriesDropdownUrl = (url: string) => void;
 
 export function ComboboxDemo(
   props:{
     tipo: string,
     fetchApi: string,
+    producer: string,
     setProducer: setProducer,
-    setCategory: setCategory
+    setCategory: setCategory,
+    setCategoriesDropdownUrl: setCategoriesDropdownUrl
   }
   
 ) {
@@ -51,7 +54,7 @@ export function ComboboxDemo(
   const [data, setData] = useState< Produtor[] | Categoria[]| null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  console.log('COMBO-BOX:  '+ props.fetchApi)
+  console.log('COMBO-BOX:  '+props.fetchApi)
 
   useEffect(() => {
     // Fetch data from the API route
@@ -143,6 +146,11 @@ export function ComboboxDemo(
                     setOpen(false)
                     console.log("props.atualizarCategoria" + value)
                     props.setCategory(currentValue === value ? "" : currentValue)
+                    const categoriesDropdownParam = {
+                      produtor: props.producer,
+                    };
+                    const queryString = new URLSearchParams(categoriesDropdownParam).toString();
+                    props.setCategoriesDropdownUrl(`/api/categoria-produtos?${queryString}`);
                   }}
                 >
                   {framework.categoria}

@@ -2,7 +2,6 @@ import { ComboboxDemo } from '@/app/customized-components/combo-box/combo-box';
 import styles from './header.module.sass';
 import { useEffect, useState } from 'react';
 import Image from "next/image";
-import { stringify } from 'querystring';
 
 function NextBasketOption(
   props : {
@@ -84,7 +83,7 @@ function Dropdowns(
 
 
 
-  const[categoriesDropdownUrl, setCategoriesDropdownUrl] = useState(`/api/categoria-produtos?produtor=`)
+  const[categoriesDropdownUrl, setCategoriesDropdownUrl] = useState(`/api/categoria-produtos?`)
 
     const [producer, setProducer] = useState<string>('')
     const [category, setCategory] = useState<string>('')
@@ -97,6 +96,7 @@ function Dropdowns(
       };
       const queryString = new URLSearchParams(categoriesDropdownParam).toString();
       setCategoriesDropdownUrl(`/api/categoria-produtos?${queryString}`);
+      console.log('categoriesDropdownUrl----- ' +categoriesDropdownUrl)
     
       const salesScreenParams = {
         producer: producer,
@@ -106,9 +106,24 @@ function Dropdowns(
       const salesQueryString = new URLSearchParams(salesScreenParams).toString();
       props.setSalesScreenFetchUrl(`/api/sales-products?${salesQueryString}`);
       console.log('props.setSalesScreenFetchUrl ----' + `/api/sales-products?${salesQueryString}`)
-    }, [producer, category]); // Run this effect when `producer` or `category` changes
+    }, [producer, category, categoriesDropdownUrl]); // Run this effect when `producer` or `category` changes
 
 
+
+
+
+    function atualizarCategoria(categoria: string){
+
+      const salesScreenParams = {
+        producer : producer,
+        category : category
+      }
+      const salesQueryString = new URLSearchParams(salesScreenParams).toString();
+
+      props.setSalesScreenFetchUrl(`/api/sales-products?${salesQueryString}`)
+
+      setCategory(categoria)
+    }
 
 
     return(
@@ -125,6 +140,8 @@ function Dropdowns(
                 tipo = 'Categoria'
                 fetchApi = {categoriesDropdownUrl}
                 setCategory = {setCategory}
+                producer = {producer}
+                setCategoriesDropdownUrl = {setCategoriesDropdownUrl}
 
             />
           </div>
