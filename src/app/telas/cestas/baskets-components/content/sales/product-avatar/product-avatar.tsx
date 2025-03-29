@@ -13,13 +13,14 @@ export default function ProductAvatar(
     }
 ){
 
-    const productPicture = props.productPicture;
+    const productPicture = props.productPicture? "https://livresbs.com.br/"+props.productPicture : "https://livresbs.com.br/images/produtos/padrao.png";
+
 
     return(
     <div className={styles.productAvatar}>
       <Image
         className={styles.productImage} 
-        src={productPicture? "https://livresbs.com.br/"+productPicture : "https://livresbs.com.br/images/produtos/padrao.png"} // Path to the image in the `public` folder
+        src={productPicture} // Path to the image in the `public` folder
         alt= "foto do produto"
         width={100} // Desired width
         height={100} // Desired height

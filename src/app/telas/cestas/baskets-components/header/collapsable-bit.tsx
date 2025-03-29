@@ -112,18 +112,18 @@ function Dropdowns(
 
 
 
-    function atualizarCategoria(categoria: string){
+    // function atualizarCategoria(categoria: string){
 
-      const salesScreenParams = {
-        producer : producer,
-        category : category
-      }
-      const salesQueryString = new URLSearchParams(salesScreenParams).toString();
+    //   const salesScreenParams = {
+    //     producer : producer,
+    //     category : category
+    //   }
+    //   const salesQueryString = new URLSearchParams(salesScreenParams).toString();
 
-      props.setSalesScreenFetchUrl(`/api/sales-products?${salesQueryString}`)
+    //   props.setSalesScreenFetchUrl(`/api/sales-products?${salesQueryString}`)
 
-      setCategory(categoria)
-    }
+    //   setCategory(categoria)
+    // }
 
 
     return(
