@@ -20,16 +20,13 @@ import {
 } from "@/components/ui/popover"
 import { useEffect, useState } from 'react'
 
-type setProducer = (produtor:string) => void;
 type setCategory = (categoria:string) => void;
 type setCategoriesDropdownUrl = (url: string) => void;
 
-export function ComboboxDemo(
+export function ComboboxCategoria(
   props:{
-    tipo: string,
     fetchApi: string,
     producer: string,
-    setProducer: setProducer,
     setCategory: setCategory,
     setCategoriesDropdownUrl: setCategoriesDropdownUrl
   }
@@ -38,12 +35,6 @@ export function ComboboxDemo(
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 
-
-  type Produtor = {
-    id: number;
-    produtor: string;
-  };
-
   type Categoria = {
     id: number;
     categoria: string;
@@ -51,10 +42,10 @@ export function ComboboxDemo(
 
 
 
-  const [data, setData] = useState< Produtor[] | Categoria[]| null>(null);
+  const [data, setData] = useState<Categoria[]| null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  console.log('COMBO-BOX:  '+props.fetchApi)
+  console.log('COMBO-BOX-CATEGORIA:  '+props.fetchApi)
 
   useEffect(() => {
     // Fetch data from the API route
@@ -64,7 +55,7 @@ export function ComboboxDemo(
           throw new Error('Network response was not ok');
         }
         //console.log(response)
-        return response.json() as Promise<Produtor[] >;
+        return response.json() as Promise<Categoria[] >;
       })
       .then((data) => {
         setData(data);
@@ -82,7 +73,6 @@ export function ComboboxDemo(
   if (data != null && data.constructor === Array)
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      {props.tipo === 'produtor' ? // PRODUTOR
         <PopoverTrigger asChild>
           <Button
             variant="outline"
@@ -91,73 +81,33 @@ export function ComboboxDemo(
             className="w-[200px] justify-between "
           >
             {value
-              ? data.find((framework) => framework.produtor === value)?.produtor
-              : "todos os produtores"}
-            <ChevronsUpDown className="opacity-50" />
-          </Button>
-        </PopoverTrigger>
-        : // CATEGORIA DO PRODUTO
-        <PopoverTrigger asChild>
-          <Button
-            variant="outline"
-            role="combobox"
-            aria-expanded={open}
-            className="w-[200px] justify-between "
-          >
-            {value
-              ? data.find((framework) => framework.categoria === value)?.categoria
+              ? data.find((Categoria) => Categoria.categoria === value)?.categoria
               : "todas as categorias"}
             <ChevronsUpDown className="opacity-50" />
           </Button>
         </PopoverTrigger>
-      }
       <PopoverContent className="w-[200px] p-0 bg-gray-900 text-white">
         <Command>
           <CommandInput placeholder={'selecionar ' + props.tipo} />
           <CommandList>
             <CommandEmpty>Não encontrado</CommandEmpty>
             <CommandGroup>
-              {data.map((framework) => (
-                props.tipo === 'produtor' ? // PRODUTOR
+              {data.map((Categoria) => (
                 <CommandItem
-                  key={framework.id}
-                  value={framework.produtor}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue)
-                    setOpen(false)
-                    props.setProducer(currentValue === value ? "" : currentValue)
-                    console.log(`props.atualizarProdutor ${currentValue}`)
-                  }}
-                >
-                  {framework.produtor}
-                  <Check
-                    className={cn(
-                      "ml-auto",
-                      value === framework.produtor ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-                </CommandItem>
-                : // CATEGORIA DO PRODUTO
-                <CommandItem
-                  key={framework.categoria}
-                  value={framework.categoria}
+                  key={Categoria.categoria}
+                  value={Categoria.categoria}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                     console.log("props.atualizarCategoria" + value)
                     props.setCategory(currentValue === value ? "" : currentValue)
-                    const categoriesDropdownParam = {
-                      produtor: props.producer,
-                    };
-                    const queryString = new URLSearchParams(categoriesDropdownParam).toString();
-                    props.setCategoriesDropdownUrl(`/api/categoria-produtos?${queryString}`);
                   }}
                 >
-                  {framework.categoria}
+                  {Categoria.categoria}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === framework.categoria ? "opacity-100" : "opacity-0"
+                      value === Categoria.categoria ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem> 

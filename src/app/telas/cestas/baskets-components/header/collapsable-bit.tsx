@@ -1,4 +1,5 @@
-import { ComboboxDemo } from '@/app/customized-components/combo-box/combo-box';
+import { ComboboxCategoria } from '@/app/customized-components/combo-box/combo-box-categoria';
+import { ComboboxProdutor } from '@/app/customized-components/combo-box/combo-box-produtor';
 import styles from './header.module.sass';
 import { useEffect, useState } from 'react';
 import Image from "next/image";
@@ -68,45 +69,40 @@ function NextBasketAndAdditionals(
 }
 
 function Dropdowns(
-  props:
-  {
-    setProducer : (arg: string) => void
+  props: {
+    setProducer: (arg: string) => void
     producer: string
-
-    setCategory : (arg: string) => void
+    setCategory: (arg: string) => void
     category: string
-
     setSalesScreenFetchUrl: (FetchUrl: string) => void
-
   }
-){
+) {
+  const [categoriesDropdownUrl, setCategoriesDropdownUrl] = useState(`/api/categoria-produtos?`)
+  const [producer, setProducer] = useState<string>('')
+  const [category, setCategory] = useState<string>('')
 
+  // Destructure the specific prop you need
+  const { setSalesScreenFetchUrl } = props;
 
+  useEffect(() => {
+    // This will run whenever `producer` changes
+    console.log('categoriesDropdownUrl----- ' + categoriesDropdownUrl)
+  
+    const salesScreenParams = {
+      producer: producer,
+      category: category,
+    };
 
-  const[categoriesDropdownUrl, setCategoriesDropdownUrl] = useState(`/api/categoria-produtos?`)
+    const categoriesDropdownParam = {
+      produtor: producer,
+    };
+    const queryString = new URLSearchParams(categoriesDropdownParam).toString();
+    setCategoriesDropdownUrl(`/api/categoria-produtos?${queryString}`);
 
-    const [producer, setProducer] = useState<string>('')
-    const [category, setCategory] = useState<string>('')
-
-
-    useEffect(() => {
-      // This will run whenever `producer` changes
-      const categoriesDropdownParam = {
-        produtor: producer,
-      };
-      const queryString = new URLSearchParams(categoriesDropdownParam).toString();
-      setCategoriesDropdownUrl(`/api/categoria-produtos?${queryString}`);
-      console.log('categoriesDropdownUrl----- ' +categoriesDropdownUrl)
-    
-      const salesScreenParams = {
-        producer: producer,
-        category: category,
-      };
-
-      const salesQueryString = new URLSearchParams(salesScreenParams).toString();
-      props.setSalesScreenFetchUrl(`/api/sales-products?${salesQueryString}`);
-      console.log('props.setSalesScreenFetchUrl ----' + `/api/sales-products?${salesQueryString}`)
-    }, [producer, category, categoriesDropdownUrl]); // Run this effect when `producer` or `category` changes
+    const salesQueryString = new URLSearchParams(salesScreenParams).toString();
+    setSalesScreenFetchUrl(`/api/sales-products?${salesQueryString}`);
+    console.log('props.setSalesScreenFetchUrl ----' + `/api/sales-products?${salesQueryString}`)
+  }, [producer, category, setSalesScreenFetchUrl, setCategoriesDropdownUrl, categoriesDropdownUrl]); // Only include the specific dependencies
 
 
 
@@ -129,15 +125,13 @@ function Dropdowns(
     return(
         <div className={styles.mainContainer}>
           <div className={styles.producerDropdown}>
-            <ComboboxDemo
-                tipo = 'produtor'
+            <ComboboxProdutor
                 fetchApi = '/api/produtores'
                 setProducer = {setProducer}
             />
           </div>
           <div className={styles.producerDropdown}>
-            <ComboboxDemo
-                tipo = 'Categoria'
+            <ComboboxCategoria
                 fetchApi = {categoriesDropdownUrl}
                 setCategory = {setCategory}
                 producer = {producer}
