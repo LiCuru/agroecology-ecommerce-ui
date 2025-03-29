@@ -21,11 +21,15 @@ import {
 import { useEffect, useState } from 'react'
 
 type setProducer = (produtor:string) => void;
+type setCategory = (category:string) => void;
+type setValue = (url: string) => void;
 
 export function ComboboxProdutor(
   props:{
     fetchApi: string,
     setProducer: setProducer,
+    setCategory: setCategory,
+    setValue: setValue
   }
   
 ) {
@@ -98,7 +102,9 @@ export function ComboboxProdutor(
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                     props.setProducer(currentValue === value ? "" : currentValue)
+                    props.setCategory('')
                     console.log(`props.atualizarProdutor ${currentValue}`)
+                    props.setValue('')
                   }}
                 >
                   {Produtor.produtor}

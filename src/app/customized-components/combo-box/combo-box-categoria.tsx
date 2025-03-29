@@ -22,18 +22,20 @@ import { useEffect, useState } from 'react'
 
 type setCategory = (categoria:string) => void;
 type setCategoriesDropdownUrl = (url: string) => void;
+type setValue = (url: string) => void;
 
 export function ComboboxCategoria(
   props:{
     fetchApi: string,
     producer: string,
     setCategory: setCategory,
-    setCategoriesDropdownUrl: setCategoriesDropdownUrl
+    setCategoriesDropdownUrl: setCategoriesDropdownUrl,
+    setValue: setValue,
+    value: string
   }
   
 ) {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
 
   type Categoria = {
     id: number;
@@ -80,8 +82,8 @@ export function ComboboxCategoria(
             aria-expanded={open}
             className="w-[200px] justify-between "
           >
-            {value
-              ? data.find((Categoria) => Categoria.categoria === value)?.categoria
+            {props.value
+              ? data.find((Categoria) => Categoria.categoria === props.value)?.categoria
               : "todas as categorias"}
             <ChevronsUpDown className="opacity-50" />
           </Button>
@@ -97,17 +99,17 @@ export function ComboboxCategoria(
                   key={Categoria.categoria}
                   value={Categoria.categoria}
                   onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue)
+                    props.setValue(currentValue === props.value ? "" : currentValue)
                     setOpen(false)
-                    console.log("props.atualizarCategoria" + value)
-                    props.setCategory(currentValue === value ? "" : currentValue)
+                    console.log("props.atualizarCategoria" + props.value)
+                    props.setCategory(currentValue === props.value ? "" : currentValue)
                   }}
                 >
                   {Categoria.categoria}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === Categoria.categoria ? "opacity-100" : "opacity-0"
+                      props.value === Categoria.categoria ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem> 

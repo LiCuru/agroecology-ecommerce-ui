@@ -36,6 +36,8 @@ export default async function handler(
       sqlQuery = `select produtos.id, nome, categoria, produtor, preco_mercado, preco_lojinha, preco, imagem from produtos inner join listas_itens on produtos.id = listas_itens.id where listas_itens.ativo = 1 and substring(nome, 1, 3) not like 'zzz';`
     }
 
+    console.log(sqlQuery)
+
     // Query the database
     //`select nome, categoria, produtor, unidade, preco_mercado, preco_lojinha, preco_pre, imagem from produtos inner join listas_itens on produtos.id = listas_itens.id where listas_itens.ativo = 1 and produtos.produtor = "${producer}" and categoria = "${category}";`
     const [rows] = await connection.execute<ResultSetHeader[]>(sqlQuery);

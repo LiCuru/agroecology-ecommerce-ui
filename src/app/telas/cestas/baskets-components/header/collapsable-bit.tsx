@@ -3,6 +3,7 @@ import { ComboboxProdutor } from '@/app/customized-components/combo-box/combo-bo
 import styles from './header.module.sass';
 import { useEffect, useState } from 'react';
 import Image from "next/image";
+import * as React from "react"
 
 function NextBasketOption(
   props : {
@@ -80,6 +81,7 @@ function Dropdowns(
   const [categoriesDropdownUrl, setCategoriesDropdownUrl] = useState(`/api/categoria-produtos?`)
   const [producer, setProducer] = useState<string>('')
   const [category, setCategory] = useState<string>('')
+  const [value, setValue] = React.useState("")
 
   // Destructure the specific prop you need
   const { setSalesScreenFetchUrl } = props;
@@ -102,24 +104,7 @@ function Dropdowns(
     const salesQueryString = new URLSearchParams(salesScreenParams).toString();
     setSalesScreenFetchUrl(`/api/sales-products?${salesQueryString}`);
     console.log('props.setSalesScreenFetchUrl ----' + `/api/sales-products?${salesQueryString}`)
-  }, [producer, category, setSalesScreenFetchUrl, setCategoriesDropdownUrl, categoriesDropdownUrl]); // Only include the specific dependencies
-
-
-
-
-
-    // function atualizarCategoria(categoria: string){
-
-    //   const salesScreenParams = {
-    //     producer : producer,
-    //     category : category
-    //   }
-    //   const salesQueryString = new URLSearchParams(salesScreenParams).toString();
-
-    //   props.setSalesScreenFetchUrl(`/api/sales-products?${salesQueryString}`)
-
-    //   setCategory(categoria)
-    // }
+  }, [value, producer, category, setSalesScreenFetchUrl, setCategoriesDropdownUrl, categoriesDropdownUrl]); // Only include the specific dependencies
 
 
     return(
@@ -128,6 +113,8 @@ function Dropdowns(
             <ComboboxProdutor
                 fetchApi = '/api/produtores'
                 setProducer = {setProducer}
+                setCategory = {setCategory}
+                setValue = {setValue}
             />
           </div>
           <div className={styles.producerDropdown}>
@@ -136,6 +123,8 @@ function Dropdowns(
                 setCategory = {setCategory}
                 producer = {producer}
                 setCategoriesDropdownUrl = {setCategoriesDropdownUrl}
+                setValue = {setValue}
+                value = {value}
 
             />
           </div>

@@ -23,9 +23,9 @@ export default async function handler(
     const {produtor} = req.query
     let selectQuery = ''
     if (produtor === ''){
-      selectQuery = `select unique categoria from produtos`
+      selectQuery = `select unique categoria from produtos inner join listas_itens on produtos.id = listas_itens.id where listas_itens.ativo = 1`
     } else {
-      selectQuery = `select unique categoria from produtos where produtor = "${produtor}"`
+      selectQuery = `select unique categoria from produtos inner join listas_itens on produtos.id = listas_itens.id where listas_itens.ativo = 1 and substring(nome, 1, 3) not like 'zzz' and produtos.produtor = "${produtor}";`
     }
     // Query the database
     const [rows] = await connection.execute<ResultSetHeader[]>(selectQuery);
