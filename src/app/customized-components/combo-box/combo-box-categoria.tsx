@@ -88,7 +88,7 @@ export function ComboboxCategoria(
         </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0 bg-gray-900 text-white">
         <Command>
-          <CommandInput placeholder={'selecionar ' + props.tipo} />
+          <CommandInput placeholder={'selecionar categoria'} />
           <CommandList>
             <CommandEmpty>Não encontrado</CommandEmpty>
             <CommandGroup>
